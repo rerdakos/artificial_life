@@ -28,4 +28,5 @@ for i in range(t):
     #print(i)
 p.disconnect()
 
+numpy.save(r'C:\Users\robme\OneDrive\Desktop\Artificial Life\data\backlegvals.npy',backLegSensorValues)
 print(backLegSensorValues)
