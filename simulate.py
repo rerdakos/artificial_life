@@ -4,6 +4,9 @@ import pybullet_data
 import pyrosim.pyrosim as pyrosim
 import numpy as np
 import random
+import constants as c
+
+
 
 physicsClient = p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
