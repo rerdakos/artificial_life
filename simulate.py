@@ -1,7 +1,8 @@
 from simulation import SIMULATION
 
+
 simulation = SIMULATION()
-simulation.Run()
+SIMULATION.Run(10)
 
 
 #import pybullet as p

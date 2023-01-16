@@ -1,4 +1,3 @@
-from http.client import OK
 import pybullet as p
 import pybullet_data
 import pyrosim.pyrosim as pyrosim
@@ -10,16 +9,14 @@ from robot import ROBOT
 class SIMULATION:
     def __init__(self):
         
-
         self.physicsClient = p.connect(p.GUI)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0,0,-9.8)
                
         self.world = WORLD()
-        self.robot = ROBOT()
+        self.robot = ROBOT()       
 
-    def Run():
-        t = 1000
+    def Run(t):       
 
         for i in range(t):
             p.stepSimulation()
@@ -36,4 +33,6 @@ class SIMULATION:
    
             time.sleep(1/60)
             print(i)
+        
+    def __del__(self):
         p.disconnect()
