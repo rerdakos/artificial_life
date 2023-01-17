@@ -2,6 +2,7 @@ import pybullet as p
 import pybullet_data
 import pyrosim.pyrosim as pyrosim
 import time
+import constants as c
 
 from world import WORLD
 from robot import ROBOT
@@ -16,10 +17,11 @@ class SIMULATION:
         self.world = WORLD()
         self.robot = ROBOT()       
 
-    def Run(t):       
-
-        for i in range(t):
+    def Run():       
+        for i in range(c.t):
             p.stepSimulation()
+
+            ROBOT.Sense(i)
 
         #    backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
         #    frontLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
