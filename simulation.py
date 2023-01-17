@@ -20,8 +20,9 @@ class SIMULATION:
     def Run():       
         for i in range(c.t):
             p.stepSimulation()
-
-            ROBOT.Sense(i)
+            
+            ROBOT.Sense(i,i)
+            
 
         #    backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
         #    frontLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
@@ -34,7 +35,7 @@ class SIMULATION:
         #    controlMode = p.POSITION_CONTROL, targetPosition = fl_targetAngles[i], maxForce = 100)
    
             time.sleep(1/60)
-            print(i)
+            print("time" + str(i))
         
     def __del__(self):
         p.disconnect()

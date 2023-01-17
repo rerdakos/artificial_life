@@ -5,6 +5,7 @@ import constants as c
 from sensor import SENSOR
 from motor import MOTOR
 
+
 class ROBOT:
 
 
@@ -18,10 +19,13 @@ class ROBOT:
         self.sensors = {}
         for linkName in pyrosim.linkNamesToIndices:
             self.sensors[linkName] = SENSOR(linkName)
+        
+    def Sense(self,t):
+        for t in self.sensors:
+            SENSOR.Get_Value(self,i,t)
             
-    def Sense(i):
-        for j in range(3):
-            SENSOR.Get_Value(i,j)
+
+ 
         
             
         
