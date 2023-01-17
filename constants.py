@@ -1,6 +1,6 @@
 import numpy as np
 
-t = 5
+t = 100
 
 bl_amplitude = np.pi/4
 bl_frequency = 10
