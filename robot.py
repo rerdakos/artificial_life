@@ -20,9 +20,9 @@ class ROBOT:
             self.sensors[linkName] = SENSOR(linkName)
             
     def Sense(i):
-        for t in range(3):
-            print(SENSOR.Get_Value(i,i))
-                #SENSOR.Get_Value(i)
+        for j in range(3):
+            SENSOR.Get_Value(i,j)
+        
             
         
 

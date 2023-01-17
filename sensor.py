@@ -7,7 +7,9 @@ class SENSOR:
     def __init__(self,linkName):       
         self.linkName = linkName
         self.values = np.zeros(c.t)
-
-    def Get_Value(self,t):
-        self.values[t] = pyrosim.Get_Touch_Sensor_Value_For_Link("self.linkName")
         print(self.values)
+
+    def Get_Value(i,j):
+        print(i,j)
+        #self.values[t] = pyrosim.Get_Touch_Sensor_Value_For_Link("self.linkName")
+        
