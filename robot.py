@@ -9,11 +9,13 @@ from motor import MOTOR
 class ROBOT:
 
 
-    def __init__(self):        
-        self.motors = MOTOR()
+    def __init__(self): 
+        k = 1
+        self.sensor = SENSOR(k)
+        self.motor = MOTOR()
         self.robotId = p.loadURDF("body.urdf")
-        pyrosim.Prepare_To_Simulate(self.robotId)
-        ROBOT.Prepare_To_Sense(self)
+        pyrosim.Prepare_To_Simulate(self.robotId)      
+        self.Prepare_To_Sense()
 
     def Prepare_To_Sense(self):        
         self.sensors = {}
@@ -21,13 +23,8 @@ class ROBOT:
             self.sensors[linkName] = SENSOR(linkName)
         
     def Sense(self,i):
-        for linkName in pyrosim.linkNamesToIndices:
-            SENSOR.Get_Value(self,linkName,i)
-
-
-            #SENSOR.Get_Value(self,i,t)
-        #for t in self.sensors:
-            #SENSOR.Get_Value(self,i,t)
+        for name in self.sensors:
+            self.sensor.Get_Value(i,name)
             
 
  
