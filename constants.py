@@ -1,6 +1,6 @@
 import numpy as np
 
-t = 100
+t = 1000
 
 amplitude = np.pi/4
 frequency = 10
