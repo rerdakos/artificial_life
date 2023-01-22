@@ -18,13 +18,13 @@ class MOTOR:
         self.motorValues = self.amplitude*np.sin(self.frequency*xvals + self.offset)
         self.motorValues2 = self.amplitude*np.sin(self.frequency*0.5*xvals + self.offset)
 
-    def Set_Value(self,i,name,robotId):
+    def Set_Value(self,desiredAngle,name,robotId):
         if name == b'Torso_FrontLeg':
             pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName = name, 
-            controlMode = p.POSITION_CONTROL, targetPosition = self.motorValues[i], maxForce = 100)
+            controlMode = p.POSITION_CONTROL, targetPosition = desiredAngle, maxForce = 100)
         if name == b'Torso_BackLeg':
             pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName = name, 
-            controlMode = p.POSITION_CONTROL, targetPosition = self.motorValues2[i], maxForce = 100)
+            controlMode = p.POSITION_CONTROL, targetPosition = desiredAngle, maxForce = 100)
 
 
  
