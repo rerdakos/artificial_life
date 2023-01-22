@@ -70,9 +70,8 @@ class NEURON:
                 self.p = neurons[synapse[0]].Get_Value()
                 
                 self.Allow_Presynaptic_Neuron_To_Influence_Me(self.w,self.p)
+        self.Threshold()
 
-        print(neurons[self.Get_Name()].Get_Value())
-        exit()
 
     def Print(self):
 
