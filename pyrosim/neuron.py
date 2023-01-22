@@ -67,6 +67,7 @@ class NEURON:
         for synapse in synapses:
             
             if synapse[1] == self.Get_Name():
+
                 self.w = synapses[synapse].Get_Weight()
                 self.p = neurons[synapse[0]].Get_Value()
                 
