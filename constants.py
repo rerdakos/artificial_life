@@ -1,6 +1,7 @@
 import numpy as np
 
 t = 100
+numberOfGenerations = 2
 
 amplitude = np.pi/4
 frequency = 10

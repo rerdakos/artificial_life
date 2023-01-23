@@ -54,9 +54,12 @@ class ROBOT:
         f.write(str(xCoordinateOfLinkZero))
         f.close()
 
+        #f = open("fitness.txt", "r")
+        #print(f.read())
         #print(stateOfLinkZero)
         #print(positionOfLinkZero)
         #print(xCoordinateOfLinkZero)
+
         exit()
 
 
