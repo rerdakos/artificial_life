@@ -60,7 +60,7 @@ class NEURON:
         
         self.Set_Value(0.0)
 
-        print(neurons[self.Get_Name()].Get_Value())
+        #print(neurons[self.Get_Name()].Get_Value())
         
         for synapse in synapses:
             
@@ -88,7 +88,7 @@ class NEURON:
         self.value = value
 
     def Allow_Presynaptic_Neuron_To_Influence_Me(self,w,p):
-        print(w,p)
+        #print(w,p)
         self.Add_To_Value(w*p)
 # -------------------------- Private methods -------------------------
 
