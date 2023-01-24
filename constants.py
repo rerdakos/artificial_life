@@ -1,7 +1,7 @@
 import numpy as np
 
 t = 1000
-numberOfGenerations = 10
+numberOfGenerations = 2
 populationSize = 2
 
 amplitude = np.pi/4

@@ -32,7 +32,7 @@ class PARALLEL_HILL_CLIMBER:
         self.Mutate()
         self.Evaluate(self.children)
         
-        #self.Print()
+        self.Print()
         #self.Select()
 
     def Spawn(self):
@@ -61,8 +61,10 @@ class PARALLEL_HILL_CLIMBER:
             self.parent = self.child
 
     def Print(self):
-        print(self.parent.fitness,self.child.fitness)
-
+        print("")
+        for key in self.parents:
+            print(self.parents[key].fitness,self.children[key].fitness)
+        print("")
     def Show_Best(self):
         pass
         #os.system("python simulate.py GUI")
