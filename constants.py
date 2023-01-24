@@ -1,8 +1,11 @@
 import numpy as np
 
 t = 1000
-numberOfGenerations = 10
-populationSize = 10
+numberOfGenerations = 2
+populationSize = 2
+
+numSensorNeurons = 3
+numMotorNeurons = 2
 
 amplitude = np.pi/4
 frequency = 10
