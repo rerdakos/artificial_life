@@ -36,8 +36,6 @@ class SOLUTION:
         os.system("del fitness" + str(self.myID) + ".txt")
 
 
-
-
     def Create_World(self):
         pyrosim.Start_SDF("world.sdf")
 
