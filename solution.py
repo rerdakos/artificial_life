@@ -17,7 +17,7 @@ class SOLUTION:
         self.Generate_Body()
         self.Generate_Brain()
 
-        os.system("start /B python simulate.py " + method + " " + str(0))
+        os.system("start /B python simulate.py " + method + " " + str(self.myID))
 
         f = open("fitness.txt", "r")
         self.fitness = float(f.read())
