@@ -6,6 +6,9 @@ import os
 class PARALLEL_HILL_CLIMBER:
     
     def __init__(self):
+        os.system("del brain*.nndf")
+        os.system("del fitness*.txt")
+
         self.parents = {}
         self.nextAvailableID = 0
 
@@ -17,19 +20,22 @@ class PARALLEL_HILL_CLIMBER:
 
     def Evolve(self):
         for key in range(c.populationSize):
-            self.parents[key].Evaluate("GUI")
+            self.parents[key].Start_Simulation("DIRECT")
 
+        for key in range(c.populationSize):           
+            self.parents[key].Wait_For_Simulation_To_End()
         #self.parent.Evaluate("GUI")
 
-        #for currentGeneration in range(c.numberOfGenerations):
-        #    self.Evolve_For_One_Generation()
+        for currentGeneration in range(c.numberOfGenerations):
+            self.Evolve_For_One_Generation()
 
     def Evolve_For_One_Generation(self):
-        self.Spawn()
-        self.Mutate()
-        self.child.Evaluate("DIRECT")
-        self.Print()
-        self.Select()
+        pass
+        #self.Spawn()
+        #self.Mutate()
+        #self.child.Evaluate("DIRECT")
+        #self.Print()
+        #self.Select()
 
     def Spawn(self):
         self.children = {}
