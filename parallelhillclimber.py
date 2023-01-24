@@ -1,5 +1,6 @@
 from solution import SOLUTION
 import constants as c
+import numpy as np
 import copy
 import os
 
@@ -30,10 +31,9 @@ class PARALLEL_HILL_CLIMBER:
    
         self.Spawn()
         self.Mutate()
-        self.Evaluate(self.children)
-        
+        self.Evaluate(self.children)  
         self.Print()
-        #self.Select()
+        self.Select()
 
     def Spawn(self):
         self.children = {}
@@ -57,14 +57,24 @@ class PARALLEL_HILL_CLIMBER:
 
 
     def Select(self):
-        if self.parent.fitness > self.child.fitness:
-            self.parent = self.child
+        for key in self.parents:
+            if self.parents[key].fitness > self.children[key].fitness:
+                self.parents[key] = self.children[key]
 
     def Print(self):
+
         print("")
         for key in self.parents:
             print(self.parents[key].fitness,self.children[key].fitness)
         print("")
+
     def Show_Best(self):
-        pass
-        #os.system("python simulate.py GUI")
+        self.fitnesses = [0] * c.populationSize
+
+        for key in self.parents:
+            self.fitnesses[key] = self.parents[key].fitness
+
+        best = min(self.fitnesses)
+        best_index = self.fitnesses.index(best)
+
+        self.parents[best_index].Start_Simulation("GUI")
