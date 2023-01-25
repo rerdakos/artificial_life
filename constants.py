@@ -7,6 +7,8 @@ populationSize = 1
 numSensorNeurons = 9
 numMotorNeurons = 8
 
+motorJointRange = 0.2
+
 amplitude = np.pi/4
 frequency = 10
 offset = 0
