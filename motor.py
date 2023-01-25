@@ -10,7 +10,7 @@ class MOTOR:
     def Set_Value(self,desiredAngle,jointName,robotId):
         if jointName == 'Torso_FrontLeg':
             pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName = jointName.encode('utf-8'), 
-            controlMode = p.POSITION_CONTROL, targetPosition = desiredAngle, maxForce = 50)
+            controlMode = p.POSITION_CONTROL, targetPosition = desiredAngle, maxForce = 500)
         if jointName == 'Torso_BackLeg':
             pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName = jointName.encode('utf-8'), 
-            controlMode = p.POSITION_CONTROL, targetPosition = desiredAngle, maxForce = 50)
+            controlMode = p.POSITION_CONTROL, targetPosition = desiredAngle, maxForce = 500)
