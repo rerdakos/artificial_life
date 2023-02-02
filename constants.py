@@ -1,13 +1,13 @@
 import numpy as np
 
 t = 1000
-numberOfGenerations = 4
-populationSize = 4
+numberOfGenerations = 1
+populationSize = 1
 
-numLegPairs = 1
+numLegPairs = 5
 
-numSensorNeurons = 3
-numMotorNeurons = 4
+numSensorNeurons = 1 + numLegPairs*2
+numMotorNeurons = numLegPairs*4
 
 motorJointRange = 1
 

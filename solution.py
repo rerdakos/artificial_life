@@ -47,21 +47,30 @@ class SOLUTION:
     
         pyrosim.Send_Cube(name="Torso", pos=[0,0,1] , size=[1,1,1])
 
-        for l in range(c.numLegPairs):
-            l += 1
-            pyrosim.Send_Joint( name = "Torso_B" + str(l) , parent= "Torso" , child = "B" + str(l) , type = "revolute", position = [0,-0.5,1], jointAxis = "1 0 0")
-            pyrosim.Send_Cube(name="B" + str(l), pos=[0,-0.5,0] , size=[0.2,1,0.2])
+        l = 1
+        
+        xp = [0]*c.numLegPairs
+        for num in range(c.numLegPairs):
+            xp[num] = (num+1)/(c.numLegPairs+1) - 0.5
+        
 
-            pyrosim.Send_Joint( name = "Torso_F" + str(l) , parent= "Torso" , child = "F" + str(l) , type = "revolute", position = [0,0.5,1], jointAxis = "1 0 0")
-            pyrosim.Send_Cube(name="F" + str(l), pos=[0,0.5,0] , size=[0.2,1,0.2])
+        for num in range(c.numLegPairs):
+
+            pyrosim.Send_Joint( name = "Torso_B" + str(l) , parent= "Torso" , child = "B" + str(l) , type = "revolute", position = [0,-0.5,1], jointAxis = "1 0 0")
+            pyrosim.Send_Cube(name="B" + str(l), pos=[xp[num],-0.5,0] , size=[0.2,1,0.2])
 
             pyrosim.Send_Joint( name = "B" + str(l) + "_LB" + str(l) , parent= "B" + str(l) , child = "LB" + str(l) , type = "revolute", position = [0,-1,0], jointAxis = "1 0 0")
-            pyrosim.Send_Cube(name="LB" + str(l), pos=[0,0,-0.5] , size=[0.2,0.2,1])
+            pyrosim.Send_Cube(name="LB" + str(l), pos=[xp[num],0,-0.5] , size=[0.2,0.2,1])
+
+            pyrosim.Send_Joint( name = "Torso_F" + str(l) , parent= "Torso" , child = "F" + str(l) , type = "revolute", position = [0,0.5,1], jointAxis = "1 0 0")
+            pyrosim.Send_Cube(name="F" + str(l), pos=[xp[num],0.5,0] , size=[0.2,1,0.2])
 
             pyrosim.Send_Joint( name = "F" + str(l) + "_LF" + str(l) , parent= "F" + str(l) , child = "LF" + str(l) , type = "revolute", position = [0,1,0], jointAxis = "1 0 0")
-            pyrosim.Send_Cube(name="LF" + str(l), pos=[0,0,-0.5] , size=[0.2,0.2,1])
+            pyrosim.Send_Cube(name="LF" + str(l), pos=[xp[num],0,-0.5] , size=[0.2,0.2,1])
 
-            pyrosim.End()
+ 
+            l += 1
+        pyrosim.End()
 
     def Generate_Brain(self):
         pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
