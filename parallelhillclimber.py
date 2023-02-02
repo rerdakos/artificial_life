@@ -19,7 +19,9 @@ class PARALLEL_HILL_CLIMBER:
 
 
     def Evolve(self):
-        self.Evaluate(self.parents)      
+        self.Evaluate(self.parents)  
+        
+        self.Show_Worst()
 
         for currentGeneration in range(c.numberOfGenerations):
             self.Evolve_For_One_Generation()
@@ -80,3 +82,17 @@ class PARALLEL_HILL_CLIMBER:
         best_index = self.fitnesses.index(best)
 
         self.parents[best_index].Start_Simulation("GUI")
+
+
+    def Show_Worst(self):
+        self.fitnesses = [0] * c.populationSize
+
+        for key in self.parents:
+            self.fitnesses[key] = self.parents[key].fitness
+
+        worst = min(self.fitnesses)
+        print(worst)
+        worst_index = self.fitnesses.index(worst)
+
+        self.parents[worst_index].Start_Simulation("GUI")
+        self.parents[worst_index].Wait_For_Simulation_To_End()
