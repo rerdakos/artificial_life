@@ -75,6 +75,7 @@ class PARALLEL_HILL_CLIMBER:
             self.fitnesses[key] = self.parents[key].fitness
 
         best = max(self.fitnesses)
+        print(best)
         best_index = self.fitnesses.index(best)
 
         self.parents[best_index].Start_Simulation("GUI")
