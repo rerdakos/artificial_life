@@ -47,32 +47,43 @@ class SOLUTION:
     
         pyrosim.Send_Cube(name="Torso", pos=[0,0,1] , size=[1,1,1])
 
-        pyrosim.Send_Joint( name = "Torso_B1" , parent= "Torso" , child = "B1" , type = "revolute", position = [0,-0.5,1], jointAxis = "1 0 0")
-        pyrosim.Send_Cube(name="B1", pos=[0,-0.5,0] , size=[0.2,1,0.2])
+        for l in range(c.numLegPairs):
+            l += 1
+            pyrosim.Send_Joint( name = "Torso_B" + str(l) , parent= "Torso" , child = "B" + str(l) , type = "revolute", position = [0,-0.5,1], jointAxis = "1 0 0")
+            pyrosim.Send_Cube(name="B" + str(l), pos=[0,-0.5,0] , size=[0.2,1,0.2])
 
-        pyrosim.Send_Joint( name = "Torso_F1" , parent= "Torso" , child = "F1" , type = "revolute", position = [0,0.5,1], jointAxis = "1 0 0")
-        pyrosim.Send_Cube(name="F1", pos=[0,0.5,0] , size=[0.2,1,0.2])
+            pyrosim.Send_Joint( name = "Torso_F" + str(l) , parent= "Torso" , child = "F" + str(l) , type = "revolute", position = [0,0.5,1], jointAxis = "1 0 0")
+            pyrosim.Send_Cube(name="F" + str(l), pos=[0,0.5,0] , size=[0.2,1,0.2])
 
-        pyrosim.Send_Joint( name = "B1_LB1" , parent= "B1" , child = "LB1" , type = "revolute", position = [0,-1,0], jointAxis = "1 0 0")
-        pyrosim.Send_Cube(name="LB1", pos=[0,0,-0.5] , size=[0.2,0.2,1])
+            pyrosim.Send_Joint( name = "B" + str(l) + "_LB" + str(l) , parent= "B" + str(l) , child = "LB" + str(l) , type = "revolute", position = [0,-1,0], jointAxis = "1 0 0")
+            pyrosim.Send_Cube(name="LB" + str(l), pos=[0,0,-0.5] , size=[0.2,0.2,1])
 
-        pyrosim.Send_Joint( name = "F1_LF1" , parent= "F1" , child = "LF1" , type = "revolute", position = [0,1,0], jointAxis = "1 0 0")
-        pyrosim.Send_Cube(name="LF1", pos=[0,0,-0.5] , size=[0.2,0.2,1])
+            pyrosim.Send_Joint( name = "F" + str(l) + "_LF" + str(l) , parent= "F" + str(l) , child = "LF" + str(l) , type = "revolute", position = [0,1,0], jointAxis = "1 0 0")
+            pyrosim.Send_Cube(name="LF" + str(l), pos=[0,0,-0.5] , size=[0.2,0.2,1])
 
-        pyrosim.End()
+            pyrosim.End()
 
     def Generate_Brain(self):
         pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
     
         pyrosim.Send_Sensor_Neuron(name = 0 , linkName = "Torso")
 
-        pyrosim.Send_Sensor_Neuron(name = 1 , linkName = "LB1")
-        pyrosim.Send_Sensor_Neuron(name = 2 , linkName = "LF1")
+        j = 1
+        for l in range(c.numLegPairs):
+            l += 1
 
-        pyrosim.Send_Motor_Neuron( name = 3 , jointName = "Torso_B1")
-        pyrosim.Send_Motor_Neuron( name = 4 , jointName = "Torso_F1")
-        pyrosim.Send_Motor_Neuron( name = 5 , jointName = "B1_LB1")
-        pyrosim.Send_Motor_Neuron( name = 6 , jointName = "F1_LF1")
+            pyrosim.Send_Sensor_Neuron(name = j , linkName = "LB" + str(l))
+            j += 1
+            pyrosim.Send_Sensor_Neuron(name = j , linkName = "LF" + str(l))
+            j += 1
+
+            pyrosim.Send_Motor_Neuron( name = j , jointName = "Torso_B" + str(l))
+            j += 1
+            pyrosim.Send_Motor_Neuron( name = j , jointName = "Torso_F" + str(l))
+            j += 1
+            pyrosim.Send_Motor_Neuron( name = j , jointName = "B" + str(l) + "_LB" + str(l))
+            j += 1
+            pyrosim.Send_Motor_Neuron( name = j , jointName = "F" + str(l) + "_LF" + str(l))
 
 
         for currentRow in range(c.numSensorNeurons):

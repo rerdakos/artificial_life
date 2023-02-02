@@ -4,6 +4,8 @@ t = 1000
 numberOfGenerations = 4
 populationSize = 4
 
+numLegPairs = 1
+
 numSensorNeurons = 3
 numMotorNeurons = 4
 
