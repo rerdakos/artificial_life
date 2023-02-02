@@ -5,7 +5,7 @@ t = 150
 numberOfGenerations = 7
 populationSize = 7
 
-numLegPairs = 1
+numLegPairs = 4
 
 numSensorNeurons = 1 + numLegPairs*2
 numMotorNeurons = numLegPairs*4
