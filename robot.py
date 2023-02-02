@@ -43,7 +43,7 @@ class ROBOT:
             if self.nn.Is_Motor_Neuron(neuronName):
                 jointName = self.nn.Get_Motor_Neurons_Joint(neuronName)
                 desiredAngle = self.nn.Get_Value_Of(neuronName)*c.motorJointRange
-
+                print(jointName)
                 self.motor.Set_Value(desiredAngle,jointName,self.robotId)
 
 
