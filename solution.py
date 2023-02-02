@@ -77,6 +77,7 @@ class SOLUTION:
         pyrosim.Send_Sensor_Neuron(name = 0 , linkName = "Torso")
 
         j = 1
+        k = c.numSensorNeurons
         for l in range(c.numLegPairs):
             l += 1
 
@@ -85,14 +86,14 @@ class SOLUTION:
             pyrosim.Send_Sensor_Neuron(name = j , linkName = "LF" + str(l))
             j += 1
 
-            pyrosim.Send_Motor_Neuron( name = j , jointName = "Torso_B" + str(l))
-            j += 1
-            pyrosim.Send_Motor_Neuron( name = j , jointName = "Torso_F" + str(l))
-            j += 1
-            pyrosim.Send_Motor_Neuron( name = j , jointName = "B" + str(l) + "_LB" + str(l))
-            j += 1
-            pyrosim.Send_Motor_Neuron( name = j , jointName = "F" + str(l) + "_LF" + str(l))
-
+            pyrosim.Send_Motor_Neuron( name = k , jointName = "Torso_B" + str(l))
+            k += 1
+            pyrosim.Send_Motor_Neuron( name = k , jointName = "Torso_F" + str(l))
+            k += 1
+            pyrosim.Send_Motor_Neuron( name = k , jointName = "B" + str(l) + "_LB" + str(l))
+            k += 1
+            pyrosim.Send_Motor_Neuron( name = k , jointName = "F" + str(l) + "_LF" + str(l))
+            k += 1
 
         for currentRow in range(c.numSensorNeurons):
             for currentColumn in range(c.numMotorNeurons):

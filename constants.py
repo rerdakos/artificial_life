@@ -1,6 +1,6 @@
 import numpy as np
 
-t = 150
+t = 200
 
 numberOfGenerations = 7
 populationSize = 7
