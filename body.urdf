@@ -21,14 +21,14 @@
             </geometry>
         </collision>
     </link>
-    <joint name="Torso_BackLeg" type="revolute">
+    <joint name="Torso_B1" type="revolute">
        <parent link="Torso"/>
-       <child  link="BackLeg"/>
+       <child  link="B1"/>
        <origin rpy="0 0 0" xyz="0 -0.5 1" />
      <axis xyz="1 0 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
-    <link name="BackLeg">
+    <link name="B1">
         <inertial>
             <origin xyz="0 -0.5 0" rpy="0 0 0"/>
             <mass value="1" />
@@ -50,14 +50,14 @@
             </geometry>
         </collision>
     </link>
-    <joint name="Torso_FrontLeg" type="revolute">
+    <joint name="Torso_F1" type="revolute">
        <parent link="Torso"/>
-       <child  link="FrontLeg"/>
+       <child  link="F1"/>
        <origin rpy="0 0 0" xyz="0 0.5 1" />
      <axis xyz="1 0 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
-    <link name="FrontLeg">
+    <link name="F1">
         <inertial>
             <origin xyz="0 0.5 0" rpy="0 0 0"/>
             <mass value="1" />
@@ -79,14 +79,14 @@
             </geometry>
         </collision>
     </link>
-    <joint name="BackLeg_LowerBackLeg" type="revolute">
-       <parent link="BackLeg"/>
-       <child  link="LowerBackLeg"/>
+    <joint name="B1_LB1" type="revolute">
+       <parent link="B1"/>
+       <child  link="LB1"/>
        <origin rpy="0 0 0" xyz="0 -1 0" />
      <axis xyz="1 0 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
-    <link name="LowerBackLeg">
+    <link name="LB1">
         <inertial>
             <origin xyz="0 0 -0.5" rpy="0 0 0"/>
             <mass value="1" />
@@ -108,14 +108,14 @@
             </geometry>
         </collision>
     </link>
-    <joint name="FrontLeg_LowerFrontLeg" type="revolute">
-       <parent link="FrontLeg"/>
-       <child  link="LowerFrontLeg"/>
+    <joint name="F1_LF1" type="revolute">
+       <parent link="F1"/>
+       <child  link="LF1"/>
        <origin rpy="0 0 0" xyz="0 1 0" />
      <axis xyz="1 0 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
-    <link name="LowerFrontLeg">
+    <link name="LF1">
         <inertial>
             <origin xyz="0 0 -0.5" rpy="0 0 0"/>
             <mass value="1" />

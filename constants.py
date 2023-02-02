@@ -1,8 +1,8 @@
 import numpy as np
 
 t = 1000
-numberOfGenerations = 10
-populationSize = 10
+numberOfGenerations = 4
+populationSize = 4
 
 numSensorNeurons = 3
 numMotorNeurons = 4
