@@ -4,10 +4,10 @@ t = 1000
 numberOfGenerations = 10
 populationSize = 10
 
-numSensorNeurons = 4
-numMotorNeurons = 8
+numSensorNeurons = 3
+numMotorNeurons = 4
 
-motorJointRange = 0.2
+motorJointRange = 1
 
 amplitude = np.pi/4
 frequency = 10
