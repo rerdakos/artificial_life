@@ -32,7 +32,6 @@ class SOLUTION:
 
         f = open(fitnessFileName, "r")
         self.fitness = float(f.read())
-        #print(self.fitness)
         f.close()
         os.system("del fitness" + str(self.myID) + ".txt")
 

@@ -7,7 +7,6 @@ from sensor import SENSOR
 from motor import MOTOR
 from pyrosim.neuralNetwork import NEURAL_NETWORK
 
-
 class ROBOT:
 
     def __init__(self,solutionID): 
@@ -21,19 +20,23 @@ class ROBOT:
         self.Prepare_To_Act()
         os.system("del brain" + str(self.solutionID) + ".nndf")
 
+
     def Prepare_To_Sense(self):        
         self.sensors = {}
         for linkName in pyrosim.linkNamesToIndices:
             self.sensors[linkName] = SENSOR(linkName)
         
+
     def Sense(self,i):
         for name in self.sensors:
             self.sensor.Get_Value(i,name)
+
 
     def Prepare_To_Act(self):        
         self.motors = {}
         for jointName in pyrosim.jointNamesToIndices:
             self.motors[jointName] = MOTOR(jointName)
+
 
     def Act(self):
         for neuronName in self.nn.Get_Neuron_Names():
@@ -43,9 +46,11 @@ class ROBOT:
 
                 self.motor.Set_Value(desiredAngle,jointName,self.robotId)
 
+
     def Think(self):
         self.nn.Update()
         #self.nn.Print()
+
 
     def Get_Fitness(self,solutionID):
         stateOfLinkZero = p.getLinkState(self.robotId,0)
