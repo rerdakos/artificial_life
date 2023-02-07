@@ -71,6 +71,19 @@ class SOLUTION:
             l += 1
         pyrosim.End()
 
+
+        pyrosim.Start_URDF("body2.urdf")
+
+        xdim = random.uniform(0, 1)
+        ydim = random.uniform(0, 1)
+        zdim = random.uniform(0, 1)
+
+        pyrosim.Send_Cube(name="Link1", pos=[0,0,1] , size=[xdim,ydim,zdim])
+
+
+        pyrosim.End()
+
+
     def Generate_Brain(self):
         pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
     
@@ -100,6 +113,14 @@ class SOLUTION:
                 pyrosim.Send_Synapse( sourceNeuronName = currentRow , targetNeuronName = currentColumn+c.numSensorNeurons , weight = self.weights[currentRow][currentColumn]  )
 
         pyrosim.End()
+
+
+        pyrosim.Start_NeuralNetwork("2brain" + str(self.myID) + ".nndf")
+    
+        pyrosim.Send_Sensor_Neuron(name = 0 , linkName = "Link1")
+
+        pyrosim.End()
+
 
     def Mutate(self):
         randomRow = random.randint(0,c.numSensorNeurons-1)

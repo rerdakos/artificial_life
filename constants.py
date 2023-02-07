@@ -2,10 +2,10 @@ import numpy as np
 
 t = 200
 
-numberOfGenerations = 7
-populationSize = 7
+numberOfGenerations = 1
+populationSize = 1
 
-numLegPairs = 4
+numLegPairs = 1
 
 numSensorNeurons = 1 + numLegPairs*2
 numMotorNeurons = numLegPairs*4
