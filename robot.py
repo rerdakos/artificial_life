@@ -50,7 +50,8 @@ class ROBOT:
 
 
     def Think(self):
-        self.nn.Update()
+        pass
+        #self.nn.Update()
         #self.nn.Print()
 
 

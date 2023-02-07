@@ -46,6 +46,8 @@ class SOLUTION:
     
         pyrosim.Send_Cube(name="Torso", pos=[0,0,1] , size=[1,1,1])
 
+
+        '''
         l = 1
         
         xp = [0]*c.numLegPairs
@@ -80,6 +82,7 @@ class SOLUTION:
 
         pyrosim.Send_Cube(name="Link1", pos=[0,0,1] , size=[xdim,ydim,zdim])
 
+        '''
 
         pyrosim.End()
 
@@ -89,6 +92,7 @@ class SOLUTION:
     
         pyrosim.Send_Sensor_Neuron(name = 0 , linkName = "Torso")
 
+        '''
         j = 1
         k = c.numSensorNeurons
         for l in range(c.numLegPairs):
@@ -107,17 +111,11 @@ class SOLUTION:
             k += 1
             pyrosim.Send_Motor_Neuron( name = k , jointName = "F" + str(l) + "_LF" + str(l))
             k += 1
-
+        '''
         for currentRow in range(c.numSensorNeurons):
             for currentColumn in range(c.numMotorNeurons):
                 pyrosim.Send_Synapse( sourceNeuronName = currentRow , targetNeuronName = currentColumn+c.numSensorNeurons , weight = self.weights[currentRow][currentColumn]  )
-
-        pyrosim.End()
-
-
-        pyrosim.Start_NeuralNetwork("2brain" + str(self.myID) + ".nndf")
-    
-        pyrosim.Send_Sensor_Neuron(name = 0 , linkName = "Link1")
+        
 
         pyrosim.End()
 
