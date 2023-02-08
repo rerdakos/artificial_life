@@ -1,11 +1,11 @@
 import numpy as np
 
 t = 1000
-numberOfGenerations = 10
-populationSize = 10
+numberOfGenerations = 1
+populationSize = 1
 
-numSensorNeurons = 4
-numMotorNeurons = 8
+numSensorNeurons = 2
+numMotorNeurons = 1
 
 motorJointRange = 0.2
 
