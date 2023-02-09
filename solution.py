@@ -49,14 +49,14 @@ class SOLUTION:
         ydim = random.uniform(0.1, 1)*3
         zdim = random.uniform(0.1, 1)*3
 
-        pyrosim.Send_Cube(name="Torso", pos=[0,0,zdim/2] , size=[xdim,ydim,zdim])
+        pyrosim.Send_Cube(name="Torso", pos=[0,0,1] , size=[2,2,2])
 
         xdim2 = random.uniform(0.1, 1)*3
         ydim2 = random.uniform(0.1, 1)*3
         zdim2 = random.uniform(0.1, 1)*3
 
-        pyrosim.Send_Joint( name = "Torso_BL" , parent= "Torso" , child = "BL" , type = "revolute", position = [0,-0.5,1], jointAxis = "1 0 0")
-        pyrosim.Send_Cube(name="BL", pos=[0,-ydim/2 -ydim2/2,0] , size=[xdim2,ydim2,zdim2])
+        pyrosim.Send_Joint( name = "Torso_BL" , parent= "Torso" , child = "BL" , type = "revolute", position = [0,-1,0.5], jointAxis = "1 0 0")
+        pyrosim.Send_Cube(name="BL", pos=[0,-0.5,0] , size=[1,1,1])
 
         """
         pyrosim.Send_Joint( name = "Torso_FrontLeg" , parent= "Torso" , child = "FrontLeg" , type = "revolute", position = [0,0.5,1], jointAxis = "1 0 0")
