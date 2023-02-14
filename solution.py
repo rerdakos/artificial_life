@@ -32,10 +32,9 @@ class SOLUTION:
 
         f = open(fitnessFileName, "r")
         self.fitness = float(f.read())
-        #print(self.fitness)
         f.close()
-        os.system("del fitness" + str(self.myID) + ".txt")
 
+        os.system("del fitness" + str(self.myID) + ".txt")
 
     def Create_World(self):
         pyrosim.Start_SDF("world.sdf")
@@ -45,10 +44,11 @@ class SOLUTION:
     def Generate_Body(self):
         pyrosim.Start_URDF("body.urdf")
         
-        
-        xdim = random.uniform(0.1, 1)*3
-        ydim = random.uniform(0.1, 1)*3
-        zdim = random.uniform(0.1, 1)*3
+        self.links_with_sensors = []
+
+        xdim = random.uniform(0.1, 1)*2
+        ydim = random.uniform(0.1, 1)*2
+        zdim = random.uniform(0.1, 1)*2
 
         color0 = random.choice(["Blue", "Green"])
 
@@ -58,14 +58,18 @@ class SOLUTION:
             colorString0 = "0 1.0 0.0 1.0"
 
         pyrosim.Send_Cube(name="0", pos=[0,0,2] , size=[xdim,ydim,zdim], color = color0, colorString = colorString0)
+
+        if color0 == "Green":
+             self.links_with_sensors.append(0)
+
         pyrosim.Send_Joint(name = "0_1" , parent= "0" , child = "1" , type = "revolute", position = [0,ydim/2,2], jointAxis = "1 0 0")
 
 
         for link in range(c.numLinks):
             
-            xdim2 = random.uniform(0.1, 1)*3
-            ydim2 = random.uniform(0.1, 1)*3
-            zdim2 = random.uniform(0.1, 1)*3
+            xdim2 = random.uniform(0.1, 1)*2
+            ydim2 = random.uniform(0.1, 1)*2
+            zdim2 = random.uniform(0.1, 1)*2
 
             color1 = random.choice(["Blue", "Green"])
 
@@ -76,25 +80,34 @@ class SOLUTION:
 
             pyrosim.Send_Cube(name=str(link+1), pos=[0,ydim2/2,0] , size=[xdim2,ydim2,zdim2], color=color1, colorString = colorString1 )
 
+            if color1 == "Green":
+                self.links_with_sensors.append(link+1)
+
             if link < c.numLinks-1:
 
                 pyrosim.Send_Joint(name = str(link+1)+ "_" +str(link+2) , parent = str(link+1) , child = str(link+2) , type = "revolute", position = [0,ydim2,0], jointAxis = "1 0 0")
 
-
+        print(self.links_with_sensors)                   
         pyrosim.End()
 
     def Generate_Brain(self):
         pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
-    
-        for link in range(c.numLinks+1):
-            pyrosim.Send_Sensor_Neuron(name = link , linkName = str(link))
+        
+        j = 0
+
+        numSensors = len(self.links_with_sensors)
+
+        for link in self.links_with_sensors:
+            
+            pyrosim.Send_Sensor_Neuron(name = j , linkName = str(link))
+            j += 1
 
         for link in range(c.numLinks):
-            pyrosim.Send_Motor_Neuron( name = link + c.numLinks + 1 , jointName = str(link) + "_" + str(link+1))
+            pyrosim.Send_Motor_Neuron( name = link + numSensors , jointName = str(link) + "_" + str(link+1))
 
-        for currentRow in range(c.numSensorNeurons):
+        for currentRow in range(numSensors):
             for currentColumn in range(c.numMotorNeurons):
-                pyrosim.Send_Synapse( sourceNeuronName = currentRow , targetNeuronName = currentColumn+c.numSensorNeurons , weight = self.weights[currentRow][currentColumn]  )
+                pyrosim.Send_Synapse( sourceNeuronName = currentRow , targetNeuronName = currentColumn+numSensors , weight = self.weights[currentRow][currentColumn]  )
 
         pyrosim.End()
 

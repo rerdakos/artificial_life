@@ -36,8 +36,6 @@ class SIMULATION:
             if self.directOrGUI == "GUI":
                 time.sleep(1/10000)
 
-            #print(i)
-        
     def __del__(self):
         p.disconnect()
 
