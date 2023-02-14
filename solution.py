@@ -57,12 +57,12 @@ class SOLUTION:
         else:
             colorString0 = "0 1.0 0.0 1.0"
 
-        pyrosim.Send_Cube(name="0", pos=[0,0,2] , size=[xdim,ydim,zdim], color = color0, colorString = colorString0)
+        pyrosim.Send_Cube(name="0", pos=[0,0,1] , size=[xdim,ydim,zdim], color = color0, colorString = colorString0)
 
         if color0 == "Green":
              self.links_with_sensors.append(0)
 
-        pyrosim.Send_Joint(name = "0_1" , parent= "0" , child = "1" , type = "revolute", position = [0,ydim/2,2], jointAxis = "1 0 0")
+        pyrosim.Send_Joint(name = "0_1" , parent= "0" , child = "1" , type = "revolute", position = [0,ydim/2,1], jointAxis = "1 0 0")
 
 
         for link in range(c.numLinks):
@@ -86,8 +86,7 @@ class SOLUTION:
             if link < c.numLinks-1:
 
                 pyrosim.Send_Joint(name = str(link+1)+ "_" +str(link+2) , parent = str(link+1) , child = str(link+2) , type = "revolute", position = [0,ydim2,0], jointAxis = "1 0 0")
-
-        print(self.links_with_sensors)                   
+                
         pyrosim.End()
 
     def Generate_Brain(self):

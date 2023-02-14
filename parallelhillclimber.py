@@ -45,12 +45,10 @@ class PARALLEL_HILL_CLIMBER:
     def Mutate(self):
         for key in self.children:
             self.children[key].Mutate()
-        
-            #self.child.Mutate()
 
     def Evaluate(self,solutions):
         for key in range(c.populationSize):
-            solutions[key].Start_Simulation("GUI")
+            solutions[key].Start_Simulation("DIRECT")
 
         for key in range(c.populationSize):           
             solutions[key].Wait_For_Simulation_To_End()
@@ -78,3 +76,4 @@ class PARALLEL_HILL_CLIMBER:
         best_index = self.fitnesses.index(best)
 
         self.parents[best_index].Start_Simulation("GUI")
+        self.parents[best_index].Wait_For_Simulation_To_End()
