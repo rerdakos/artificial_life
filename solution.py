@@ -50,7 +50,14 @@ class SOLUTION:
         ydim = random.uniform(0.1, 1)*3
         zdim = random.uniform(0.1, 1)*3
 
-        pyrosim.Send_Cube(name="0", pos=[0,0,2] , size=[xdim,ydim,zdim])
+        color0 = random.choice(["Blue", "Green"])
+
+        if color0 == "Blue":
+            colorString0 = "0 0.0 1.0 1.0"
+        else:
+            colorString0 = "0 1.0 0.0 1.0"
+
+        pyrosim.Send_Cube(name="0", pos=[0,0,2] , size=[xdim,ydim,zdim], color = color0, colorString = colorString0)
         pyrosim.Send_Joint(name = "0_1" , parent= "0" , child = "1" , type = "revolute", position = [0,ydim/2,2], jointAxis = "1 0 0")
 
 
@@ -60,7 +67,14 @@ class SOLUTION:
             ydim2 = random.uniform(0.1, 1)*3
             zdim2 = random.uniform(0.1, 1)*3
 
-            pyrosim.Send_Cube(name=str(link+1), pos=[0,ydim2/2,0] , size=[xdim2,ydim2,zdim2])
+            color1 = random.choice(["Blue", "Green"])
+
+            if color1 == "Blue":
+                colorString1 = "0 0.0 1.0 1.0"
+            else:
+                colorString1 = "0 1.0 0.0 1.0"
+
+            pyrosim.Send_Cube(name=str(link+1), pos=[0,ydim2/2,0] , size=[xdim2,ydim2,zdim2], color=color1, colorString = colorString1 )
 
             if link < c.numLinks-1:
 

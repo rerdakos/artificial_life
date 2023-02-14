@@ -4,7 +4,7 @@ t = 1000
 numberOfGenerations = 1
 populationSize = 1
 
-numLinks = 3 # Not including the initial one
+numLinks = 6 # Not including the initial one
 numSensorNeurons = numLinks+1
 numMotorNeurons = numLinks
 
