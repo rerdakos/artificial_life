@@ -4,8 +4,9 @@ t = 1000
 numberOfGenerations = 1
 populationSize = 1
 
-numSensorNeurons = 2
-numMotorNeurons = 1
+numLinks = 3 # Not including the initial one
+numSensorNeurons = numLinks+1
+numMotorNeurons = numLinks
 
 motorJointRange = 0.2
 
