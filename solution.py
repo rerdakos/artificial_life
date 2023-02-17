@@ -78,11 +78,11 @@ class SOLUTION:
             else:
                 colorString1 = "0 1.0 0.0 1.0"
 
-            pyrosim.Send_Cube(name=str(link+1), pos=[0,ydim2/2,0] , size=[xdim2,ydim2,zdim2], color=color1, colorString = colorString1 )
-
             if color1 == "Green":
                 self.links_with_sensors.append(link+1)
 
+            pyrosim.Send_Cube(name=str(link+1), pos=[0,ydim2/2,0] , size=[xdim2,ydim2,zdim2], color=color1, colorString = colorString1 )
+            
             if link < c.numLinks-1:
 
                 pyrosim.Send_Joint(name = str(link+1)+ "_" +str(link+2) , parent = str(link+1) , child = str(link+2) , type = "revolute", position = [0,ydim2,0], jointAxis = "1 0 0")
