@@ -81,13 +81,23 @@ class SOLUTION:
             if color1 == "Green":
                 self.links_with_sensors.append(link+1)
 
-            pyrosim.Send_Cube(name=str(link+1), pos=[0,ydim2/2,0] , size=[xdim2,ydim2,zdim2], color=color1, colorString = colorString1 )
+
+            position1 = random.choice([[xdim2,0,0], [-xdim2,0,0], [0,ydim2,0], [0,-ydim2,0]])
+            
+            if position1 == [xdim2,0,0] or position1 == [xdim2,0,0]:
+                axis = "0 1 0"
+            else:
+                axis = "1 0 0"
+
+            pyrosim.Send_Cube(name=str(link+1), pos=position1 , size=[xdim2,ydim2,zdim2], color=color1, colorString = colorString1 )
             
             if link < c.numLinks-1:
 
-                pyrosim.Send_Joint(name = str(link+1)+ "_" +str(link+2) , parent = str(link+1) , child = str(link+2) , type = "revolute", position = [0,ydim2,0], jointAxis = "1 0 0")
+                pyrosim.Send_Joint(name = str(link+1)+ "_" +str(link+2) , parent = str(link+1) , child = str(link+2) , type = "revolute", position = position1, jointAxis = axis)
                 
         pyrosim.End()
+
+
 
     def Generate_Brain(self):
         pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
