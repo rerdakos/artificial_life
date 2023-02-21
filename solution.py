@@ -46,9 +46,9 @@ class SOLUTION:
         
         self.links_with_sensors = []
 
-        xdim = 1#random.uniform(0.1, 1)*2
-        ydim = 1#random.uniform(0.1, 1)*2
-        zdim = 1#random.uniform(0.1, 1)*2
+        xdim = 2
+        ydim = 1
+        zdim = 0.5
 
         color0 = random.choice(["Blue", "Green"])
 
@@ -61,18 +61,44 @@ class SOLUTION:
              self.links_with_sensors.append(0)
 
         pyrosim.Send_Cube(name="0", pos=[0,0,zdim/2] , size=[xdim,ydim,zdim], color = color0, colorString = colorString0)
+        
 
-        nextlink = random.choice([1,2,3,4])
-        path0 = [[xdim/2,0,zdim/2], [-xdim/2,0,zdim/2], [0,ydim/2,zdim/2], [0,-ydim/2,zdim/2]]
-        position0 = path0[nextlink-1]
+        for node in range(c.nodes):
 
-        pyrosim.Send_Joint(name = "0_" + str(nextlink) , parent= "0" , child = str(nextlink) , type = "revolute", position = position0, jointAxis = "1 1 0")
+            position0 = [[xdim/3,ydim/2,zdim/2], [-xdim/3,ydim/2,zdim/2], [-xdim/3,-ydim/2,zdim/2], [xdim/3,-ydim/2,zdim/2]]
 
+            pyrosim.Send_Joint(name = "0_" + str(node+1) , parent= "0" , child = str(node+1) , type = "revolute", position = position0[node], jointAxis = "1 0 0")
 
+            xdim2 = 0.5
+            ydim2 = 1 #random.uniform(0.1, 1)
+            zdim2 = 0.2
+
+            position1 = [[xdim2/2,ydim2/2,0], [-xdim2/2,ydim2/2,0], [-xdim2/2,-ydim2/2,0], [xdim2/2,-ydim2/2,0]]
+
+            color1 = random.choice(["Blue", "Green"])
+
+            if color1 == "Blue":
+                colorString1 = "0 0.0 1.0 1.0"
+            else:
+                colorString1 = "0 1.0 0.0 1.0"
+
+            if color1 == "Green":
+                self.links_with_sensors.append(node+1)
+
+            pyrosim.Send_Cube(name=str(node+1), pos=position1[node] , size=[xdim2,ydim2,zdim2], color=color1, colorString = colorString1 )
+            #pyrosim.Send_Joint(name = str(link+1)+ "_" +str(link+1+10) , parent = str(link+1) , child = str(link+2) , type = "revolute", position = position1, jointAxis = "1 1 0")
+
+        #nextlink = 1 random.choice([1,2,3,4])
+        #path0 = [[xdim/2,0,zdim/2], [-xdim/2,0,zdim/2], [0,ydim/2,zdim/2], [0,-ydim/2,zdim/2]]
+        #position0 = path0[nextlink-1]
+
+        #pyrosim.Send_Joint(name = "0_" + str(nextlink) , parent= "0" , child = str(nextlink) , type = "revolute", position = position0, jointAxis = "1 1 0")
+
+        '''
         for link in range(c.numLinks):
             
             xdim2 =  0.5#random.uniform(0.1, 1)*2
-            ydim2 =  1#random.uniform(0.1, 1)*2
+            ydim2 =  0.5#random.uniform(0.1, 1)*2
             zdim2 =  0.2#random.uniform(0.1, 1)*2
 
             color1 = random.choice(["Blue", "Green"])
@@ -85,15 +111,15 @@ class SOLUTION:
             if color1 == "Green":
                 self.links_with_sensors.append(link+1)
 
-            path1 = [[xdim/2,0,0], [-xdim/2,0,0], [0,ydim/2,0], [0,-ydim/2,0]]
-            position1 = path1[nextlink]
+            path1 = [[xdim2/2,0,0], [-xdim2/2,0,0], [0,ydim2/2,0], [0,-ydim2/2,0]]
+            position1 = path1[nextlink-1]
 
             pyrosim.Send_Cube(name=str(nextlink), pos=position1 , size=[xdim2,ydim2,zdim2], color=color1, colorString = colorString1 )
             
             if link < c.numLinks-1:
 
                 pyrosim.Send_Joint(name = str(link+1)+ "_" +str(link+2) , parent = str(link+1) , child = str(link+2) , type = "revolute", position = position1, jointAxis = "1 1 0")
-                
+           '''     
         pyrosim.End()
 
 
@@ -110,8 +136,8 @@ class SOLUTION:
             pyrosim.Send_Sensor_Neuron(name = j , linkName = str(link))
             j += 1
 
-        for link in range(c.numLinks):
-            pyrosim.Send_Motor_Neuron( name = link + numSensors , jointName = str(link) + "_" + str(link+1))
+        for link in range(c.nodes):
+            pyrosim.Send_Motor_Neuron( name = link + numSensors , jointName = "0_" + str(link+1))
 
         for currentRow in range(numSensors):
             for currentColumn in range(c.numMotorNeurons):

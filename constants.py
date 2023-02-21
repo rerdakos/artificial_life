@@ -5,8 +5,10 @@ t = 1000
 numberOfGenerations = 1
 populationSize = 1
 
-numLinks = 1 #random.randint(1, 6)  Not including the initial one
-numSensorNeurons = numLinks+1
-numMotorNeurons = numLinks
+nodes = 4
+limbs = 2
+numLinks = 0 #random.randint(1, 6)  Not including the initial one
+numSensorNeurons = nodes*2+1
+numMotorNeurons = nodes*2
 
 motorJointRange = 0.6
