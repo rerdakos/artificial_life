@@ -46,9 +46,9 @@ class SOLUTION:
         
         self.links_with_sensors = []
 
-        xdim = random.uniform(0.1, 1)*2
-        ydim = random.uniform(0.1, 1)*2
-        zdim = random.uniform(0.1, 1)*2
+        xdim = 1#random.uniform(0.1, 1)*2
+        ydim = 1#random.uniform(0.1, 1)*2
+        zdim = 1#random.uniform(0.1, 1)*2
 
         color0 = random.choice(["Blue", "Green"])
 
@@ -57,19 +57,19 @@ class SOLUTION:
         else:
             colorString0 = "0 1.0 0.0 1.0"
 
-        pyrosim.Send_Cube(name="0", pos=[0,0,1] , size=[xdim,ydim,zdim], color = color0, colorString = colorString0)
+        pyrosim.Send_Cube(name="0", pos=[0,0,0] , size=[xdim,ydim,zdim], color = color0, colorString = colorString0)
 
         if color0 == "Green":
              self.links_with_sensors.append(0)
 
-        pyrosim.Send_Joint(name = "0_1" , parent= "0" , child = "1" , type = "revolute", position = [0,ydim/2,1], jointAxis = "1 0 0")
+        pyrosim.Send_Joint(name = "0_1" , parent= "0" , child = "1" , type = "revolute", position = [0,ydim/2,0], jointAxis = "1 0 0")
 
 
         for link in range(c.numLinks):
             
-            xdim2 = random.uniform(0.1, 1)*2
-            ydim2 = random.uniform(0.1, 1)*2
-            zdim2 = random.uniform(0.1, 1)*2
+            xdim2 =  1#random.uniform(0.1, 1)*2
+            ydim2 =  1#random.uniform(0.1, 1)*2
+            zdim2 =  0.2#random.uniform(0.1, 1)*2
 
             color1 = random.choice(["Blue", "Green"])
 
@@ -82,13 +82,14 @@ class SOLUTION:
                 self.links_with_sensors.append(link+1)
 
 
-            position1 = random.choice([[xdim2,0,0], [-xdim2,0,0], [0,ydim2,0], [0,-ydim2,0]])
+            position1 = [0,ydim2/2,0] # random.choice([[xdim2,0,0], [-xdim2,0,0], [0,ydim2,0], [0,-ydim2,0]])
             
-            if position1 == [xdim2,0,0] or position1 == [xdim2,0,0]:
-                axis = "0 1 0"
+            if position1 == [xdim2/2,0,0] or position1 == [-xdim2/2,0,0]:
+                axis = "1 0 0"
             else:
                 axis = "1 0 0"
 
+            print(axis)
             pyrosim.Send_Cube(name=str(link+1), pos=position1 , size=[xdim2,ydim2,zdim2], color=color1, colorString = colorString1 )
             
             if link < c.numLinks-1:
