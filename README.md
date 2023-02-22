@@ -12,10 +12,14 @@ Our goal is to expand the design space of your randomized snake from asgmt 6 by 
 
 ## Frog Body Plan
 
+Below is the body plan for our randomized creature. As you can see below, the torso has 4 node locations where joints can be placed, which lead to a 
+first limb which each also has a node for another joint and second limb. When the body generates, we loop over these node locations and there is a random
+choice to either place a limb or skip to the next node. This random choice is done for both limbs, so we get some creatures with no limb, 1 limb or 2 limbs 
+at each of the nodes. Each of these links have randomly generated sizes and random sensor placement/colors.
+
 ![alt text](https://github.com/rerdakos/artificial_life/blob/3d_snake/image.jpg?raw=true)
 
-
-
+### The rest is the same as last Assignment
 ### Random number of links
 This is done simply by setting a variable to be random.randint(1, 9), which chooses a random number between 1 and 9 for the number of links we want in our chain.
 
