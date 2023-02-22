@@ -47,7 +47,7 @@ class SOLUTION:
         self.links_with_sensors = []
         self.joint_names = []
 
-        xdim0 = random.uniform(1.5, 2.0)
+        xdim0 = random.uniform(1.5, 1.8)
         ydim0 = random.uniform(0.5, 1.5)
         zdim0 = random.uniform(0.2, 0.5)
 
@@ -76,7 +76,7 @@ class SOLUTION:
 
             position0 = [[xdim0/3,ydim0/2,zdim0/2], [-xdim0/3,ydim0/2,zdim0/2], [-xdim0/3,-ydim0/2,zdim0/2], [xdim0/3,-ydim0/2,zdim0/2]]
 
-            decision0 = random.choice(["Yes", "No"]) #decide to create first limb
+            decision0 = "Yes" #random.choice(["Yes", "No"]) #decide to create first limb
 
             if decision0 == "Yes":
 
@@ -100,22 +100,21 @@ class SOLUTION:
                     self.links_with_sensors.append(node+1)
 
                 pyrosim.Send_Cube(name=str(node+1), pos=position1[node] , size=[xdim1,ydim1,zdim1], color=color1, colorString = colorString1 )
-            
-                position2 = [[xdim1,ydim1,-zdim1/2], [0,ydim1,-zdim1/2], [0,-ydim1,-zdim1/2], [xdim1,-ydim1,-zdim1/2]]
 
-
-                decision1 = random.choice(["Yes", "No"]) #decide to create second limb
+                decision1 = "Yes" #random.choice(["Yes", "No"]) #decide to create second limb
 
                 if decision1 == "Yes":
+            
+                    position2 = [[xdim1,ydim1,-zdim1/2], [-xdim1,ydim1,-zdim1/2], [-xdim1,-ydim1,-zdim1/2], [xdim1,-ydim1,-zdim1/2]]
 
                     pyrosim.Send_Joint(name = str(node+1)+ "_" +str(node+11) , parent = str(node+1) , child = str(node+11) , type = "revolute", position = position2[node], jointAxis = "0 1 0")
                     self.joint_names.append(str(node+1)+ "_" +str(node+11))
 
                     xdim3 = random.uniform(0.3, 1)
-                    ydim3 = random.uniform(0.1, 0.5)
-                    zdim3 = 0.2
+                    ydim3 = random.uniform(0.1, 0.4)
+                    zdim3 = random.uniform(0.05, 0.2)
 
-                    position3 = [[xdim3/2,-ydim3/2,-zdim3/2], [xdim3/2,-ydim3/2,-zdim3/2], [xdim3/2,ydim3/2,-zdim3/2], [xdim3/2,ydim3/2,-zdim3/2]]
+                    position3 = [[xdim3/2,-ydim3/2,-zdim3/2], [-xdim3/2,-ydim3/2,-zdim3/2], [-xdim3/2,ydim3/2,-zdim3/2], [xdim3/2,ydim3/2,-zdim3/2]]
 
                     color2 = random.choice(["Blue", "Green"])
 

@@ -1,9 +1,9 @@
 import numpy as np
 import random
 
-t = 800
-numberOfGenerations = 2
-populationSize = 2
+t = 1000
+numberOfGenerations = 100
+populationSize = 1
 
 nodes = 4
 limbs = 2
