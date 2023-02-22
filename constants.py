@@ -2,8 +2,8 @@ import numpy as np
 import random
 
 t = 800
-numberOfGenerations = 5
-populationSize = 5
+numberOfGenerations = 2
+populationSize = 2
 
 nodes = 4
 limbs = 2
