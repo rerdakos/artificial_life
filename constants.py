@@ -2,7 +2,7 @@ import numpy as np
 import random
 
 t = 1000
-numberOfGenerations = 100
+numberOfGenerations = 1
 populationSize = 1
 
 nodes = 4

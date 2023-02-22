@@ -1,5 +1,5 @@
 # Robin Erdakos - Artifical Life at Northwestern
-# Assignment 6 - Randomized Snake
+# Assignment 6 - Randomized Frog/Crawling Baby
 
 ## Running the code
 
@@ -8,9 +8,13 @@ https://www.reddit.com/r/ludobots/wiki/installation/
 
 ## Goal
 
-Our goal is to generate a kinematic chain (a jointed, motorized, innervated, sensorized snake) 
-with a random number of randomly shaped links with random sensor placement along the chain. Finally, the links with and without sensors should be colored green and blue, respectively.
-I will describe how I achieved each aspect of this goal below.
+Our goal is to expand the design space of your randomized snake from asgmt 6 by allowing the kinematic chain to branch in 3D.
+
+## Frog Body Plan
+
+![alt text](https://github.com/rerdakos/artificial_life/blob/3d_snake/image.jpg?raw=true)
+
+
 
 ### Random number of links
 This is done simply by setting a variable to be random.randint(1, 9), which chooses a random number between 1 and 9 for the number of links we want in our chain.
