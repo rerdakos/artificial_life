@@ -1,7 +1,7 @@
 import numpy as np
 import random
 
-t = 1000
+t = 200
 numberOfGenerations = 1
 populationSize = 1
 
