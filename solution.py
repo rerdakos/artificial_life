@@ -67,7 +67,7 @@ class SOLUTION:
         
         xHead = xdim0/4
         yHead = ydim0/2
-        zHead = zdim0*0.75
+        zHead = zdim0
         
         pyrosim.Send_Cube(name="Head", pos=[-xHead*0.25,0,zHead] , size=[xHead,yHead,zHead], color = "Blue", colorString = "0.0 0.0 1.0 1.0")
 
@@ -76,18 +76,18 @@ class SOLUTION:
 
             position0 = [[xdim0/3,ydim0/2,zdim0/2], [-xdim0/3,ydim0/2,zdim0/2], [-xdim0/3,-ydim0/2,zdim0/2], [xdim0/3,-ydim0/2,zdim0/2]]
 
-            decision0 = random.choice(["Yes", "No"]) #decide to create first limb
+            decision0 = "Yes" # random.choice(["Yes", "No"]) #decide to create first limb
 
             if decision0 == "Yes":
 
                 pyrosim.Send_Joint(name = "0_" + str(node+1) , parent= "0" , child = str(node+1) , type = "revolute", position = position0[node], jointAxis = "0 1 0")
                 self.joint_names.append("0_" + str(node+1))
 
-                xdim1 = random.uniform(0.1, 0.5)
-                ydim1 = random.uniform(0.1, 0.5)
+                xdim1 = random.uniform(0.2, 0.5)
+                ydim1 = random.uniform(0.2, 0.5)
                 zdim1 = random.uniform(0.5, 1.4)
 
-                position1 = [[xdim1/2,ydim1/2,-zdim1/2], [-xdim1/2,ydim1/2,-zdim1/2], [-xdim1/2,-ydim1/2,-zdim1/2], [xdim1/2,-ydim1/2,-zdim1/2]]
+                position1 = [[0,ydim1/2,-zdim1/2], [0,ydim1/2,-zdim1/2], [0,-ydim1/2,-zdim1/2], [0,-ydim1/2,-zdim1/2]]
 
                 color1 = random.choice(["Blue", "Green"])
 
@@ -101,11 +101,11 @@ class SOLUTION:
 
                 pyrosim.Send_Cube(name=str(node+1), pos=position1[node] , size=[xdim1,ydim1,zdim1], color=color1, colorString = colorString1 )
 
-                decision1 = random.choice(["Yes", "No"]) #decide to create second limb
+                decision1 = "Yes" # random.choice(["Yes", "No"]) #decide to create second limb
 
                 if decision1 == "Yes":
             
-                    position2 = [[xdim1,ydim1,-zdim1/2], [-xdim1,ydim1,-zdim1/2], [-xdim1,-ydim1,-zdim1/2], [xdim1,-ydim1,-zdim1/2]]
+                    position2 = [[0,ydim1,-zdim1], [0,ydim1,-zdim1], [0,-ydim1,-zdim1], [0,-ydim1,-zdim1]]
 
                     pyrosim.Send_Joint(name = str(node+1)+ "_" +str(node+11) , parent = str(node+1) , child = str(node+11) , type = "revolute", position = position2[node], jointAxis = "0 1 0")
                     self.joint_names.append(str(node+1)+ "_" +str(node+11))
@@ -114,7 +114,7 @@ class SOLUTION:
                     ydim3 = random.uniform(0.1, 0.4)
                     zdim3 = random.uniform(0.05, 0.2)
 
-                    position3 = [[xdim3/2,-ydim3/2,-zdim3/2], [-xdim3/2,-ydim3/2,-zdim3/2], [-xdim3/2,ydim3/2,-zdim3/2], [xdim3/2,ydim3/2,-zdim3/2]]
+                    position3 = [[-xdim3/2,0,zdim3/2], [-xdim3/2,0,zdim3/2], [-xdim3/2,0,zdim3/2], [-xdim3/2,0,zdim3/2]]
 
                     color2 = random.choice(["Blue", "Green"])
 
