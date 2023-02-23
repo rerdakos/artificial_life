@@ -144,8 +144,8 @@ class SOLUTION:
         
         j = 0
 
-        numSensors = len(self.links_with_sensors)
-        numMotors = len(self.joint_names)
+        self.numSensors = len(self.links_with_sensors)
+        self.numMotors = len(self.joint_names)
 
         for link in self.links_with_sensors:
             
@@ -154,20 +154,29 @@ class SOLUTION:
         
         j = 0
         for joint in self.joint_names:
-            pyrosim.Send_Motor_Neuron( name = j + numSensors , jointName = joint)
+            pyrosim.Send_Motor_Neuron( name = j + self.numSensors , jointName = joint)
             j += 1
 
-        for currentRow in range(numSensors):
-            for currentColumn in range(numMotors):
-                pyrosim.Send_Synapse( sourceNeuronName = currentRow , targetNeuronName = currentColumn+numSensors , weight = self.weights[currentRow][currentColumn]  )
+        for currentRow in range(self.numSensors):
+            for currentColumn in range(self.numMotors):
+                pyrosim.Send_Synapse( sourceNeuronName = currentRow , targetNeuronName = currentColumn+self.numSensors , weight = self.weights[currentRow][currentColumn]  )
         
         pyrosim.End()
 
     def Mutate(self):
-        randomRow = random.randint(0,c.numSensorNeurons-1)
-        randomColumn = random.randint(0,c.numMotorNeurons-1)
+        randomRow = random.randint(0,self.numSensors-1)
+        randomColumn = random.randint(0,self.numMotors-1)
 
         self.weights[randomRow,randomColumn] = random.random() * 2 - 1
+
+        decisionCol = random.randint(0,3)
+        decisionRow = random.randint(0,1)
+
+        if self.decision[decisionCol,decisionRow] == 1:
+            self.decision[decisionCol,decisionRow] = 0
+        else:
+            self.decision[decisionCol,decisionRow] = 1
+
 
     def Set_ID(self,id):
         self.myID = id
