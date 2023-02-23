@@ -18,7 +18,7 @@ class SOLUTION:
 
         for ii in range(4):
             for jj in range(2):
-                self.decision[ii,jj] = 1 #random.choice([1, 0])
+                self.decision[ii,jj] = random.choice([1, 0])
 
     def Evaluate(self,method):
         pass
