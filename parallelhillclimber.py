@@ -7,6 +7,7 @@ import os
 class PARALLEL_HILL_CLIMBER:
     
     def __init__(self):
+        os.system("del body*.nndf")
         os.system("del brain*.nndf")
         os.system("del fitness*.txt")
 
@@ -46,7 +47,7 @@ class PARALLEL_HILL_CLIMBER:
 
     def Evaluate(self,solutions):
         for key in range(c.populationSize):
-            solutions[key].Start_Simulation("GUI")
+            solutions[key].Start_Simulation("DIRECT")
 
         for key in range(c.populationSize):           
             solutions[key].Wait_For_Simulation_To_End()

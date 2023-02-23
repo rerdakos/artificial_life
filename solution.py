@@ -48,8 +48,8 @@ class SOLUTION:
         pyrosim.End()
 
     def Generate_Body(self):
-        pyrosim.Start_URDF("body.urdf")
-        
+        pyrosim.Start_URDF("body" + str(self.myID) + ".urdf")
+
         self.links_with_sensors = []
         self.joint_names = []
 
@@ -94,7 +94,7 @@ class SOLUTION:
 
                 position1 = [[0,ydim1/2,-zdim1/2], [0,ydim1/2,-zdim1/2], [0,-ydim1/2,-zdim1/2], [0,-ydim1/2,-zdim1/2]]
 
-                color1 = random.choice(["Blue", "Green"])
+                color1 = random.choice(["Green", "Green"])
 
                 if color1 == "Blue":
                     colorString1 = "0 0.0 1.0 1.0"
@@ -119,7 +119,7 @@ class SOLUTION:
 
                     position3 = [[-xdim3/2,0,0], [-xdim3/2,0,0], [-xdim3/2,0,0], [-xdim3/2,0,0]]
 
-                    color2 = random.choice(["Blue", "Green"])
+                    color2 = random.choice(["Green", "Green"])
 
                     if color2 == "Blue":
                         colorString2 = "0 0.0 1.0 1.0"
@@ -172,11 +172,7 @@ class SOLUTION:
         decisionCol = random.randint(0,3)
         decisionRow = random.randint(0,1)
 
-        if self.decision[decisionCol,decisionRow] == 1:
-            self.decision[decisionCol,decisionRow] = 0
-        else:
-            self.decision[decisionCol,decisionRow] = 1
-
+        self.decision[decisionCol,decisionRow] = random.randint(0,1)
 
     def Set_ID(self,id):
         self.myID = id

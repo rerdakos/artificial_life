@@ -3,7 +3,7 @@ import random
 
 t = 200
 numberOfGenerations = 10
-populationSize = 1
+populationSize = 10
 
 nodes = 4
 limbs = 2
