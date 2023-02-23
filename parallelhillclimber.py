@@ -18,8 +18,6 @@ class PARALLEL_HILL_CLIMBER:
             self.parents[key] = SOLUTION(self.nextAvailableID)
             self.nextAvailableID += 1
 
-
-
     def Evolve(self):
         self.Evaluate(self.parents)
         
@@ -47,7 +45,7 @@ class PARALLEL_HILL_CLIMBER:
 
     def Evaluate(self,solutions):
         for key in range(c.populationSize):
-            solutions[key].Start_Simulation("GUI")
+            solutions[key].Start_Simulation("DIRECT")
 
         for key in range(c.populationSize):           
             solutions[key].Wait_For_Simulation_To_End()
@@ -55,7 +53,7 @@ class PARALLEL_HILL_CLIMBER:
 
     def Select(self):
         for key in self.parents:
-            if self.parents[key].fitness < self.children[key].fitness:
+            if self.parents[key].fitness > self.children[key].fitness:
                 self.parents[key] = self.children[key]
 
     def Print(self):
@@ -71,7 +69,7 @@ class PARALLEL_HILL_CLIMBER:
         for key in self.parents:
             self.fitnesses[key] = self.parents[key].fitness
 
-        best = max(self.fitnesses)
+        best = min(self.fitnesses)
         best_index = self.fitnesses.index(best)
 
         self.parents[best_index].Start_Simulation("GUI")
