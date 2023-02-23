@@ -8,7 +8,21 @@ import constants as c
 class SOLUTION:
     
     def __init__(self,nextAvailableID):
-        self.myID = nextAvailableID
+        self.myID = nextAvailableID       
+
+        self.torso = [random.uniform(1.5, 1.8), random.uniform(0.5, 1.5), random.uniform(0.2, 0.5)]
+
+        self.limb1 = np.zeros((4, 3))
+        self.limb2 = np.zeros((4, 3))
+
+        for i in range(4):
+            self.limb1[i,0] = random.uniform(0.1, 0.5)
+            self.limb1[i,1] = random.uniform(0.1, 0.5)
+            self.limb1[i,2] = 0.9
+
+            self.limb2[i,0] = random.uniform(0.4, 0.6)
+            self.limb2[i,1] = self.limb1[i,1]
+            self.limb2[i,2] = 0.1
 
         self.weights = np.random.rand(c.numSensorNeurons,c.numMotorNeurons)
 
@@ -53,11 +67,11 @@ class SOLUTION:
         self.links_with_sensors = []
         self.joint_names = []
 
-        xdim0 = random.uniform(1.5, 1.8)
-        ydim0 = random.uniform(0.5, 1.5)
-        zdim0 = random.uniform(0.2, 0.5)
+        xdim0 = self.torso[0] 
+        ydim0 = self.torso[1]
+        zdim0 = self.torso[2]
+        zoff = 0.8
 
-        zoff = 1.5
         color0 = random.choice(["Blue", "Green"])
 
         if color0 == "Blue":
@@ -88,9 +102,14 @@ class SOLUTION:
                 pyrosim.Send_Joint(name = "0_" + str(node+1) , parent= "0" , child = str(node+1) , type = "revolute", position = position0[node], jointAxis = "0 1 0")
                 self.joint_names.append("0_" + str(node+1))
 
-                xdim1 = random.uniform(0.1, 0.5)
-                ydim1 = random.uniform(0.1, 0.5)
-                zdim1 = 0.9 #random.uniform(0.5, 1.4)
+                        
+                xdim1 = self.limb1[node,0]
+                ydim1 = self.limb1[node,1]
+                zdim1 = self.limb1[node,2]
+        
+                xdim2 = self.limb2[node,0]
+                ydim2 = self.limb2[node,1]
+                zdim2 = self.limb2[node,2] 
 
                 position1 = [[0,ydim1/2,-zdim1/2], [0,ydim1/2,-zdim1/2], [0,-ydim1/2,-zdim1/2], [0,-ydim1/2,-zdim1/2]]
 
@@ -113,11 +132,7 @@ class SOLUTION:
                     pyrosim.Send_Joint(name = str(node+1)+ "_" +str(node+11) , parent = str(node+1) , child = str(node+11) , type = "revolute", position = position2[node], jointAxis = "0 1 0")
                     self.joint_names.append(str(node+1)+ "_" +str(node+11))
 
-                    xdim3 = random.uniform(0.4, 0.6)
-                    ydim3 = ydim1
-                    zdim3 = 0.1 #random.uniform(0.1, 0.15)
-
-                    position3 = [[-xdim3/2,0,0], [-xdim3/2,0,0], [-xdim3/2,0,0], [-xdim3/2,0,0]]
+                    position3 = [[-xdim2/2,0,0], [-xdim2/2,0,0], [-xdim2/2,0,0], [-xdim2/2,0,0]]
 
                     color2 = random.choice(["Green", "Green"])
 
@@ -129,7 +144,7 @@ class SOLUTION:
                     if color2 == "Green":
                         self.links_with_sensors.append(node+11)
 
-                    pyrosim.Send_Cube(name=str(node+11), pos=position3[node] , size=[xdim3,ydim3,zdim3], color=color2, colorString = colorString2 )
+                    pyrosim.Send_Cube(name=str(node+11), pos=position3[node] , size=[xdim2,ydim2,zdim2], color=color2, colorString = colorString2 )
                 else:
                     pass
             else:
