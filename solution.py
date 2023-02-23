@@ -51,6 +51,7 @@ class SOLUTION:
         ydim0 = random.uniform(0.5, 1.5)
         zdim0 = random.uniform(0.2, 0.5)
 
+        zoff = 1.5
         color0 = random.choice(["Blue", "Green"])
 
         if color0 == "Blue":
@@ -61,9 +62,9 @@ class SOLUTION:
         if color0 == "Green":
              self.links_with_sensors.append(0)
 
-        pyrosim.Send_Cube(name="0", pos=[0,0,zdim0/2] , size=[xdim0,ydim0,zdim0], color = color0, colorString = colorString0)
+        pyrosim.Send_Cube(name="0", pos=[0,0,zdim0/2+zoff] , size=[xdim0,ydim0,zdim0], color = color0, colorString = colorString0)
         
-        pyrosim.Send_Joint(name = "0_" + "Head" , parent= "0" , child = "Head" , type = "revolute", position = [-xdim0/2,0,zdim0/2], jointAxis = "0 1 0")
+        pyrosim.Send_Joint(name = "0_" + "Head" , parent= "0" , child = "Head" , type = "revolute", position = [-xdim0/2,0,zdim0/2+zoff], jointAxis = "0 1 0")
         
         xHead = xdim0/4
         yHead = ydim0/2
@@ -74,7 +75,7 @@ class SOLUTION:
 
         for node in range(c.nodes):
 
-            position0 = [[xdim0/3,ydim0/2,zdim0/2], [-xdim0/3,ydim0/2,zdim0/2], [-xdim0/3,-ydim0/2,zdim0/2], [xdim0/3,-ydim0/2,zdim0/2]]
+            position0 = [[xdim0/3,ydim0/2,zdim0/2+zoff], [-xdim0/3,ydim0/2,zdim0/2+zoff], [-xdim0/3,-ydim0/2,zdim0/2+zoff], [xdim0/3,-ydim0/2,zdim0/2+zoff]]
 
             decision0 = "Yes" # random.choice(["Yes", "No"]) #decide to create first limb
 
