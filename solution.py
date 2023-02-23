@@ -14,6 +14,12 @@ class SOLUTION:
 
         self.weights = 2*self.weights - 1
 
+        self.decision = np.zeros((4, 2))
+
+        for ii in range(4):
+            for jj in range(2):
+                self.decision[ii,jj] = 1 #random.choice([1, 0])
+
     def Evaluate(self,method):
         pass
  
@@ -77,16 +83,14 @@ class SOLUTION:
 
             position0 = [[xdim0/3,ydim0/2,zdim0/2+zoff], [-xdim0/3,ydim0/2,zdim0/2+zoff], [-xdim0/3,-ydim0/2,zdim0/2+zoff], [xdim0/3,-ydim0/2,zdim0/2+zoff]]
 
-            decision0 = "Yes" # random.choice(["Yes", "No"]) #decide to create first limb
-
-            if decision0 == "Yes":
+            if self.decision[node,0] == 1:
 
                 pyrosim.Send_Joint(name = "0_" + str(node+1) , parent= "0" , child = str(node+1) , type = "revolute", position = position0[node], jointAxis = "0 1 0")
                 self.joint_names.append("0_" + str(node+1))
 
                 xdim1 = random.uniform(0.1, 0.5)
                 ydim1 = random.uniform(0.1, 0.5)
-                zdim1 = random.uniform(0.5, 1.4)
+                zdim1 = 0.9 #random.uniform(0.5, 1.4)
 
                 position1 = [[0,ydim1/2,-zdim1/2], [0,ydim1/2,-zdim1/2], [0,-ydim1/2,-zdim1/2], [0,-ydim1/2,-zdim1/2]]
 
@@ -102,18 +106,16 @@ class SOLUTION:
 
                 pyrosim.Send_Cube(name=str(node+1), pos=position1[node] , size=[xdim1,ydim1,zdim1], color=color1, colorString = colorString1 )
 
-                decision1 = "Yes" # random.choice(["Yes", "No"]) #decide to create second limb
-
-                if decision1 == "Yes":
+                if self.decision[node,1] == 1:
             
                     position2 = [[-xdim1/2,ydim1/2,-zdim1], [-xdim1/2,ydim1/2,-zdim1], [-xdim1/2,-ydim1/2,-zdim1], [-xdim1/2,-ydim1/2,-zdim1]]
 
                     pyrosim.Send_Joint(name = str(node+1)+ "_" +str(node+11) , parent = str(node+1) , child = str(node+11) , type = "revolute", position = position2[node], jointAxis = "0 1 0")
                     self.joint_names.append(str(node+1)+ "_" +str(node+11))
 
-                    xdim3 = random.uniform(0.4, 0.8)
+                    xdim3 = random.uniform(0.4, 0.6)
                     ydim3 = ydim1
-                    zdim3 = random.uniform(0.1, 0.15)
+                    zdim3 = 0.1 #random.uniform(0.1, 0.15)
 
                     position3 = [[-xdim3/2,0,0], [-xdim3/2,0,0], [-xdim3/2,0,0], [-xdim3/2,0,0]]
 
