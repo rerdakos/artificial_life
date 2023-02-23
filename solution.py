@@ -69,7 +69,7 @@ class SOLUTION:
         yHead = ydim0/2
         zHead = zdim0*0.75
         
-        pyrosim.Send_Cube(name="Head", pos=[-xHead*0.25,0,zHead] , size=[xHead,yHead,zHead], color = "Cyan", colorString = "0.0 1.0 1.0 1.0")
+        pyrosim.Send_Cube(name="Head", pos=[-xHead*0.25,0,zHead] , size=[xHead,yHead,zHead], color = "Blue", colorString = "0.0 0.0 1.0 1.0")
 
 
         for node in range(c.nodes):
@@ -80,12 +80,12 @@ class SOLUTION:
 
             if decision0 == "Yes":
 
-                pyrosim.Send_Joint(name = "0_" + str(node+1) , parent= "0" , child = str(node+1) , type = "revolute", position = position0[node], jointAxis = "1 0 0")
+                pyrosim.Send_Joint(name = "0_" + str(node+1) , parent= "0" , child = str(node+1) , type = "revolute", position = position0[node], jointAxis = "0 1 0")
                 self.joint_names.append("0_" + str(node+1))
 
                 xdim1 = random.uniform(0.1, 0.5)
-                ydim1 = random.uniform(0.4, 0.8)
-                zdim1 = random.uniform(0.05, 0.2)
+                ydim1 = random.uniform(0.1, 0.5)
+                zdim1 = random.uniform(0.5, 1.4)
 
                 position1 = [[xdim1/2,ydim1/2,-zdim1/2], [-xdim1/2,ydim1/2,-zdim1/2], [-xdim1/2,-ydim1/2,-zdim1/2], [xdim1/2,-ydim1/2,-zdim1/2]]
 
