@@ -1,7 +1,7 @@
 import numpy as np
 import random
 
-t = 400
+t = 1000
 numberOfGenerations = 1
 populationSize = 1
 
@@ -11,4 +11,4 @@ numLinks = 0 #random.randint(1, 6)  Not including the initial one
 numSensorNeurons = nodes*2+1
 numMotorNeurons = nodes*2
 
-motorJointRange = 0.5
+motorJointRange = 0.8
