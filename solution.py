@@ -76,7 +76,7 @@ class SOLUTION:
 
             position0 = [[xdim0/3,ydim0/2,zdim0/2], [-xdim0/3,ydim0/2,zdim0/2], [-xdim0/3,-ydim0/2,zdim0/2], [xdim0/3,-ydim0/2,zdim0/2]]
 
-            decision0 = "Yes" #random.choice(["Yes", "No"]) #decide to create first limb
+            decision0 = random.choice(["Yes", "No"]) #decide to create first limb
 
             if decision0 == "Yes":
 
@@ -101,7 +101,7 @@ class SOLUTION:
 
                 pyrosim.Send_Cube(name=str(node+1), pos=position1[node] , size=[xdim1,ydim1,zdim1], color=color1, colorString = colorString1 )
 
-                decision1 = "Yes" #random.choice(["Yes", "No"]) #decide to create second limb
+                decision1 = random.choice(["Yes", "No"]) #decide to create second limb
 
                 if decision1 == "Yes":
             
