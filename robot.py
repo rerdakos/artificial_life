@@ -1,5 +1,6 @@
 import pybullet as p
 import pyrosim.pyrosim as pyrosim
+import numpy as np
 import constants as c
 import os
 
@@ -22,6 +23,7 @@ class ROBOT:
         os.system("del brain" + str(self.solutionID) + ".nndf")
         os.system("del body" + str(self.solutionID) + ".urdf")
 
+        self.storefit = np.zeros(c.populationSize*(c.numberOfGenerations+1))
 
     def Prepare_To_Sense(self):        
         self.sensors = {}
@@ -52,6 +54,12 @@ class ROBOT:
         stateOfLinkZero = p.getLinkState(self.robotId,0)
         positionOfLinkZero = stateOfLinkZero[0]
         xCoordinateOfLinkZero = positionOfLinkZero[0]
+
+        print(int(solutionID))
+
+        self.storefit[int(solutionID)] = xCoordinateOfLinkZero
+
+        np.save(r'C:\Users\robme\OneDrive\Desktop\Artificial Life\data\FitnessValues.npy',self.storefit)
 
         f = open("tmp" + str(solutionID) + ".txt", "w")
         f.write(str(xCoordinateOfLinkZero))

@@ -1,14 +1,15 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-backLegSensorValues = np.load(r'C:\Users\robme\OneDrive\Desktop\Artificial Life\data\backLegSensorValues.npy')
-frontLegSensorValues = np.load(r'C:\Users\robme\OneDrive\Desktop\Artificial Life\data\frontLegSensorValues.npy')
+#FitnessValues1 = np.load(r'C:\Users\robme\OneDrive\Documents\GitHub\artificial_life/FitnessValues.npy')
+FitnessValues = np.load(r'C:\Users\robme\OneDrive\Desktop\Artificial Life\data\FitnessValues.npy')
 
-bl_targetAngles = np.load(r'C:\Users\robme\OneDrive\Desktop\Artificial Life\data\bl_targetAngles.npy')
-fl_targetAngles = np.load(r'C:\Users\robme\OneDrive\Desktop\Artificial Life\data\fl_targetAngles.npy')
+#np.save(r'C:\Users\robme\OneDrive\Desktop\Artificial Life\data\FitnessValues.npy',xCoordinateOfLinkZero)
+#np.save(r'C:\Users\robme\OneDrive\Documents\GitHub\artificial_life/FitnessValues.npy',xCoordinateOfLinkZero)
 
-plt.plot(bl_targetAngles,label="bl")
-plt.plot(fl_targetAngles,label='fl')
+print(FitnessValues)
+
+plt.plot(FitnessValues,label="Fitness")
 
 #plt.plot(backLegSensorValues, label="Back Leg", linewidth=3)
 #plt.plot(frontLegSensorValues, label="Front Leg")
