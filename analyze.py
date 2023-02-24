@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 #FitnessValues1 = np.load(r'C:\Users\robme\OneDrive\Documents\GitHub\artificial_life/FitnessValues.npy')
-FitnessValues = np.load(r'C:\Users\robme\OneDrive\Desktop\Artificial Life\data\FitnessValues.npy')
+FitnessValues = np.load(r'C:\Users\robme\OneDrive\Desktop\Artificial Life\data\FitnessValues2.npy')
 
 #np.save(r'C:\Users\robme\OneDrive\Desktop\Artificial Life\data\FitnessValues.npy',xCoordinateOfLinkZero)
 #np.save(r'C:\Users\robme\OneDrive\Documents\GitHub\artificial_life/FitnessValues.npy',xCoordinateOfLinkZero)
