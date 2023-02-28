@@ -12,7 +12,7 @@ Our goal is to expand the design space of your randomized snake from asgmt 6 by 
 
 ## Simple Body Plan
 
-![alt text](https://github.com/rerdakos/artificial_life/blob/3d_snake/Simple.jpg?raw=true)
+![alt text](https://github.com/rerdakos/artificial_life/blob/Assignment8/Simple.jpg?raw=true)
 
 
 ## Frog Body Plan
@@ -22,11 +22,11 @@ first limb which each also has a node for another joint and second limb. When th
 choice to either place a limb or skip to the next node. This random choice is done for both limbs, so we get some creatures with no limb, 1 limb or 2 limbs 
 at each of the nodes. Each of these links have randomly generated sizes and random sensor placement/colors.
 
-![alt text](https://github.com/rerdakos/artificial_life/blob/3d_snake/image.jpg?raw=true)
+![alt text](https://github.com/rerdakos/artificial_life/blob/Assignment8/image.jpg?raw=true)
 
 ## Fitness Tracker
 
-![alt text](https://github.com/rerdakos/artificial_life/blob/3d_snake/Fitness5.jpg?raw=true)
+![alt text](https://github.com/rerdakos/artificial_life/blob/Assignment8/Fitness5.jpg?raw=true)
 
 ### The rest is the same as last Assignment
 ### Random number of links
