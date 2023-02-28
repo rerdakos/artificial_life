@@ -2,7 +2,7 @@ import numpy as np
 import random
 
 t = 1000
-numberOfGenerations = 1
+numberOfGenerations = 100
 populationSize = 5
 nodes = 4
 limbs = 2

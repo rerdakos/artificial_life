@@ -1,21 +1,46 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import constants as c
+import pandas as pd
 
-#FitnessValues1 = np.load(r'C:\Users\robme\OneDrive\Documents\GitHub\artificial_life/FitnessValues.npy')
-FitnessValues = np.load(r'C:\Users\robme\OneDrive\Desktop\Artificial Life\data\FitnessValues2.npy')
+#FitnessValues = np.load(r'C:\Users\robme\OneDrive\Documents\GitHub\artificial_life/fittemp.txt')
+#FitnessValues = np.load(r'C:\Users\robme\OneDrive\Desktop\Artificial Life\data\FitnessValues2.npy')
 
-#np.save(r'C:\Users\robme\OneDrive\Desktop\Artificial Life\data\FitnessValues.npy',xCoordinateOfLinkZero)
-#np.save(r'C:\Users\robme\OneDrive\Documents\GitHub\artificial_life/FitnessValues.npy',xCoordinateOfLinkZero)
+with open('fittemp.txt') as f:
+    all_fitnesses = f.read()
+    print(all_fitnesses)
 
-print(FitnessValues)
 
-plt.plot(FitnessValues,label="Fitness")
+rawfit = np.zeros(c.populationSize*(c.numberOfGenerations+1))
+rawint = np.zeros(c.populationSize*(c.numberOfGenerations+1))
 
-#plt.plot(backLegSensorValues, label="Back Leg", linewidth=3)
-#plt.plot(frontLegSensorValues, label="Front Leg")
 
-#print(backLegSensorValues)
-#print(frontLegSensorValues)
+for i in range(c.populationSize*(c.numberOfGenerations+1)):
 
+    print(all_fitnesses[23*i:2+23*i])
+    rawfit[i] = all_fitnesses[2+23*i:21+23*i]
+    rawint[i] = all_fitnesses[23*i:2+23*i]
+
+print(rawfit)
+print(rawint)
+
+
+xy = pd.DataFrame({'x': rawint, 'y': rawfit})
+xy.sort_values('x', inplace=True)
+
+print(xy['x'])
+'''
+plt.plot(xy['x'], xy['y'])
+plt.show()
+
+plt.plot(rawint,rawfit,label="Fitness")
 plt.legend()
 plt.show()
+'''
+
+#print(FitnessValues)
+
+#plt.plot(contents,label="Fitness")
+
+#plt.legend()
+#plt.show()

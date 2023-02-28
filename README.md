@@ -19,6 +19,10 @@ at each of the nodes. Each of these links have randomly generated sizes and rand
 
 ![alt text](https://github.com/rerdakos/artificial_life/blob/3d_snake/image.jpg?raw=true)
 
+## Fitness Tracker
+
+![alt text](https://github.com/rerdakos/artificial_life/blob/3d_snake/Fitness5.jpg?raw=true)
+
 ### The rest is the same as last Assignment
 ### Random number of links
 This is done simply by setting a variable to be random.randint(1, 9), which chooses a random number between 1 and 9 for the number of links we want in our chain.
