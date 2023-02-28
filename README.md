@@ -14,13 +14,15 @@ Our goal is to expand the design space of your randomized snake from asgmt 6 by 
 
 ![alt text](https://github.com/rerdakos/artificial_life/blob/Assignment8/Simple.jpg?raw=true)
 
+## Complex Body Plan
 
-## Frog Body Plan
-
-Below is the body plan for our randomized creature. As you can see below, the torso has 4 node locations where joints can be placed, which lead to a 
+Below is the full body plan for our randomized creature. As you can see below, the torso has 4 node locations where joints can be placed, which lead to a 
 first limb which each also has a node for another joint and second limb. When the body generates, we loop over these node locations and there is a random
 choice to either place a limb or skip to the next node. This random choice is done for both limbs, so we get some creatures with no limb, 1 limb or 2 limbs 
-at each of the nodes. Each of these links have randomly generated sizes and random sensor placement/colors.
+at each of the nodes. Each of these links have randomly generated sizes and random sensor placement/colors. All sensors connect to all motors.
+
+For evolution, motor values are randomly changed as done previously, but now upon each mutation we make a random change to the body plan that determines the
+limb placement.
 
 ![alt text](https://github.com/rerdakos/artificial_life/blob/Assignment8/image.jpg?raw=true)
 
