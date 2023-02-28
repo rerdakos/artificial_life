@@ -1,5 +1,5 @@
 # Robin Erdakos - Artifical Life at Northwestern
-# Assignment 6 - Randomized Frog/Crawling Baby
+# Assignment 8 - Parallel Crawler
 
 ## Running the code
 
@@ -9,6 +9,11 @@ https://www.reddit.com/r/ludobots/wiki/installation/
 ## Goal
 
 Our goal is to expand the design space of your randomized snake from asgmt 6 by allowing the kinematic chain to branch in 3D.
+
+## Simple Body Plan
+
+![alt text](https://github.com/rerdakos/artificial_life/blob/3d_snake/Simple.jpg?raw=true)
+
 
 ## Frog Body Plan
 

@@ -15,13 +15,14 @@ class SENSOR:
 
 
     def Save_Fitness(self,solutionId,value):
+        pass
         #print(self.storefit,solutionId,value)
         #self.storefit[int(solutionId)] = value
-
+        '''
         f = open("fittemp3.txt", "a")
         f.write(str(int(solutionId)) + " " + str(value) + " " + "\n")
         f.close()
-
+        '''
         #np.save(r'C:\Users\robme\OneDrive\Desktop\Artificial Life\data\FitnessValues2.npy',self.storefit)
 
     def Save_Values(self):
