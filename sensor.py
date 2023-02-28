@@ -15,6 +15,7 @@ class SENSOR:
 
 
     def Save_Fitness(self,solutionId,value):
+        print(self.storefit,solutionId,value)
         self.storefit[int(solutionId)] = value
         np.save(r'C:\Users\robme\OneDrive\Desktop\Artificial Life\data\FitnessValues2.npy',self.storefit)
 
