@@ -3,8 +3,8 @@ import random
 
 t = 1000 # Time for each simulation
 
-numberOfGenerations = 10 # Number of Generations
-populationSize = 3 # Size of Population
+numberOfGenerations = 0 # Number of Generations
+populationSize = 1 # Size of Population
 
 nodes = 4 # Number of node locations for limb generation
 numSensorNeurons = nodes*2 # Number of possible sensor locations

@@ -1,5 +1,5 @@
 # Robin Erdakos - Artifical Life at Northwestern
-# Assignment 8 - Parallel Crawler
+# Final Report - Evolved Crawler
 
 ## Running the code
 
