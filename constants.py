@@ -1,13 +1,13 @@
 import numpy as np
 import random
 
-t = 1000
-numberOfGenerations = 10
-populationSize = 1
-nodes = 4
-limbs = 2
-numLinks = 0 #random.randint(1, 6)  Not including the initial one
-numSensorNeurons = nodes*2
-numMotorNeurons = nodes*2
+t = 1000 # Time for each simulation
 
-motorJointRange = 0.2
+numberOfGenerations = 10 # Number of Generations
+populationSize = 3 # Size of Population
+
+nodes = 4 # Number of node locations for limb generation
+numSensorNeurons = nodes*2 # Number of possible sensor locations
+numMotorNeurons = nodes*2 # Number of possible motor locations
+
+motorJointRange = 0.2 # Range for motors

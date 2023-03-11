@@ -6,6 +6,7 @@
 Follow instructions on r/ludobots to install python, pybullet and pyrosim, create a repository and change your directory accordingly.
 https://www.reddit.com/r/ludobots/wiki/installation/
 
+
 ## Goal
 
 Our goal is to expand the design space of your randomized snake from asgmt 6 by allowing the kinematic chain to branch in 3D.

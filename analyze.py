@@ -3,9 +3,6 @@ import matplotlib.pyplot as plt
 import constants as c
 import pandas as pd
 
-#FitnessValues = np.load(r'C:\Users\robme\OneDrive\Documents\GitHub\artificial_life/fittemp.txt')
-#FitnessValues = np.load(r'C:\Users\robme\OneDrive\Desktop\Artificial Life\data\FitnessValues2.npy')
-
 with open('fittemp.txt') as f:
     all_fitnesses = f.read()
     print(all_fitnesses)
@@ -29,18 +26,3 @@ xy = pd.DataFrame({'x': rawint, 'y': rawfit})
 xy.sort_values('x', inplace=True)
 
 print(xy['x'])
-'''
-plt.plot(xy['x'], xy['y'])
-plt.show()
-
-plt.plot(rawint,rawfit,label="Fitness")
-plt.legend()
-plt.show()
-'''
-
-#print(FitnessValues)
-
-#plt.plot(contents,label="Fitness")
-
-#plt.legend()
-#plt.show()
