@@ -11,11 +11,19 @@ https://www.reddit.com/r/ludobots/wiki/installation/
 
 Our goal is to expand the design space of your randomized snake from asgmt 6 by allowing the kinematic chain to branch in 3D.
 
-## Simple Body Plan
+## Crawler Body
 
-![alt text](https://github.com/rerdakos/artificial_life/blob/Assignment8/Simple.jpg?raw=true)
+# Genotype
 
-## Complex Body Plan
+![alt text](https://github.com/rerdakos/artificial_life/blob/Assignment8/Genotype.jpg?raw=true)
+
+C:\Users\robme\OneDrive\Documents\GitHub\artificial_life
+# Phenotype
+
+![alt text](https://github.com/rerdakos/artificial_life/blob/Assignment8/Phenotype.jpg?raw=true)
+
+![alt text](https://github.com/rerdakos/artificial_life/blob/Assignment8/bodies.jpg?raw=true)
+
 
 Below is the full body plan for our randomized creature. As you can see below, the torso has 4 node locations where joints can be placed, which lead to a 
 first limb which each also has a node for another joint and second limb. When the body generates, we loop over these node locations and there is a random
@@ -25,7 +33,10 @@ at each of the nodes. Each of these links have randomly generated sizes and rand
 For evolution, motor values are randomly changed as done previously, but now upon each mutation we make a random change to the body plan that determines the
 limb placement.
 
-![alt text](https://github.com/rerdakos/artificial_life/blob/Assignment8/image.jpg?raw=true)
+## Cralwer Brain
+
+![alt text](https://github.com/rerdakos/artificial_life/blob/Assignment8/bodies.jpg?raw=true)
+
 
 ## Fitness Tracker
 
