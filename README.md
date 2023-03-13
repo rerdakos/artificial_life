@@ -6,14 +6,28 @@
 Follow instructions on r/ludobots to install python, pybullet and pyrosim, create a repository and change your directory accordingly.
 https://www.reddit.com/r/ludobots/wiki/installation/
 
+From this repository, open search.py to run the simulations and constants.py to change parameters such as time, popualtion size and number of generations.
 
 ## Goal
 
 Our goal is to expand the design space of your randomized snake from asgmt 6 by allowing the kinematic chain to branch in 3D.
 
-## Simple Body Plan
+## Crawler Body
 
-![alt text](https://github.com/rerdakos/artificial_life/blob/Assignment8/Simple.jpg?raw=true)
+# Genotype
+
+Below is a diagram of the design of our creatures genotype, this is how the bodies are generated.
+
+![alt text](https://github.com/rerdakos/artificial_life/blob/Final/Genotype_.jpg?raw=true)
+
+# Phenotype
+
+Now we see how these bodies may look in actual physical space, correspoding to the genotype above. Also, we can see possible bodies
+that may be randomly generated in a population.
+
+![alt text](https://github.com/rerdakos/artificial_life/blob/Final/Phenotype_.jpg?raw=true)
+
+![alt text](https://github.com/rerdakos/artificial_life/blob/Final/bodies_.jpg?raw=true)
 
 ## Complex Body Plan
 
