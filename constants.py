@@ -4,8 +4,8 @@ import random
 # VARIABLES TO CHANGE
 t = 1000 # Time for each simulation
 
-numberOfGenerations = 10 # Number of Generations
-populationSize = 3 # Size of Population
+numberOfGenerations = 100 # Number of Generations
+populationSize = 1 # Size of Population
 
 motorJointRange = 0.2 # Range for motors
 

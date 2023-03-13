@@ -6,11 +6,11 @@
 Follow instructions on r/ludobots to install python, pybullet and pyrosim, create a repository and change your directory accordingly.
 https://www.reddit.com/r/ludobots/wiki/installation/
 
-From this repository, open search.py to run the simulations and constants.py to change parameters such as time, popualtion size and number of generations.
+From this repository, open search.py to run the simulations and use constants.py to change parameters such as time, popualtion size and number of generations.
 
 ## Goal
 
-Our goal is to expand the design space of your randomized snake from asgmt 6 by allowing the kinematic chain to branch in 3D.
+
 
 ## Crawler Body
 
@@ -39,7 +39,8 @@ at each of the nodes. Each of these links have randomly generated sizes and rand
 For evolution, motor values are randomly changed as done previously, but now upon each mutation we make a random change to the body plan that determines the
 limb placement.
 
-![alt text](https://github.com/rerdakos/artificial_life/blob/Assignment8/image.jpg?raw=true)
+
+
 
 ## Fitness Tracker
 
