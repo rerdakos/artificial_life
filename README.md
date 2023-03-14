@@ -1,6 +1,10 @@
 # Robin Erdakos - Artifical Life at Northwestern 2023
 # Final Project - Evolved 3D Crawler
 
+## Teaser Gif
+
+![gif](https://user-images.githubusercontent.com/122335049/224907289-dbadc7ce-6be5-4b4c-90fb-27eb44fcf820.gif)
+
 ## Final Video of Project - https://youtu.be/_7BQK5OemuY
 
 ## Running the code
