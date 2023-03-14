@@ -1,9 +1,11 @@
-# Robin Erdakos - Artifical Life at Northwestern
-# Assignment 8 - Parallel Crawler
+# Robin Erdakos - Artifical Life at Northwestern 2023
+# Final Project - Evolved 3D Crawler
 
 ## Running the code
 
-Follow instructions on r/ludobots to install python, pybullet and pyrosim, create a repository and change your directory accordingly.
+In order to run the simulations for the virtual creatures, follow instructions on r/ludobots to install python, pybullet and pyrosim, 
+create a repository and change your directory accordingly.
+
 https://www.reddit.com/r/ludobots/wiki/installation/
 
 From this repository, open search.py to run the simulations and use constants.py to change parameters such as time, popualtion size and number of generations.
@@ -16,13 +18,13 @@ strategy is used to find the best evolved creature in a population. Below I will
 
 ## Crawler Body
 
-# Genotype
+### Genotype
 
 Below is a diagram of the design of our creatures genotype, this is how the bodies are generated.
 
 ![alt text](https://github.com/rerdakos/artificial_life/blob/Final/Genotype_.jpg?raw=true)
 
-# Phenotype
+### Phenotype
 
 Now we see how these bodies may look in actual physical space, corresponding to the genotype above. Also, we can see possible bodies
 that may be randomly generated in a population.
@@ -31,7 +33,7 @@ that may be randomly generated in a population.
 
 ![alt text](https://github.com/rerdakos/artificial_life/blob/Final/bodies_.jpg?raw=true)
 
-# Full Description of Body Plan
+### Detailed Description of Body Plan
 
 As seen in the phenotype diagram, the torso has 4 node locations where joints can be placed, which lead to a 
 first limb which each also has a node for another joint and second limb. When the body generates, we loop over these node locations and there is a random
@@ -45,7 +47,7 @@ to activate, allowing for locomotion. Below is a diagram of potential sensor pla
 
 ![alt text](https://github.com/rerdakos/artificial_life/blob/Final/brain_.jpg?raw=true)
 
-# Mutation and Evolution
+### Mutation and Evolution
 
 Each creature in the population acts as a "parent", which has the initial randomly generated body and brain. If we have one or more generations, for 
 each one a "child" is created, which is almost identical to the parent. When this child is made there is some slight mutation from the original parent, 
@@ -58,7 +60,9 @@ Below is more information and figures on the selection process for the creatures
 
 ## Tests and Results
 
+For this final project I have run 
+### Fitness Tracker
 
-# Fitness Tracker
+C:\Users\robme\OneDrive\Documents\GitHub\artificial_life\Fitness5.jpg
 
 ![alt text](https://github.com/rerdakos/artificial_life/blob/Fitness5.jpg?raw=true)
