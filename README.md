@@ -1,6 +1,8 @@
 # Robin Erdakos - Artifical Life at Northwestern 2023
 # Final Project - Evolved 3D Crawler
 
+## Final Video of Project - https://youtu.be/_7BQK5OemuY
+
 ## Running the code
 
 In order to run the simulations for the virtual creatures, follow instructions on r/ludobots to install python, pybullet and pyrosim, 
@@ -60,9 +62,18 @@ Below is more information and figures on the selection process for the creatures
 
 ## Tests and Results
 
-For this final project I have run 
+For this final project I will present the results of 100 generations of mutations for a population size of 5 randomly generated seeds. The 500+ simulations 
+were evaluated and tested across each other, with one final creature reaching the furthest distance. Below is a link to a short video depicting 
+the results of those simulations.
+
+https://youtu.be/SPBkdOHguSQ
+
 ### Fitness Tracker
 
-C:\Users\robme\OneDrive\Documents\GitHub\artificial_life\Fitness5.jpg
+For this trial of 500+ simulated creatures, the fitness values for each evaluation was recorded and processed. Below is a figure tracking the fitness 
+of each creature in the population, with fitness getting better with mutation in later generations.
 
-![alt text](https://github.com/rerdakos/artificial_life/blob/Fitness5.jpg?raw=true)
+![alt text](https://github.com/rerdakos/artificial_life/blob/FitnessCurves.jpg?raw=true)
+
+To record your own data running these simulations, open sensor.py and modify the Save_Fitness function to save the fitness values in a text file. 
+You can then use excel to organize the data numerically and then process into figures such as the one seen above.
