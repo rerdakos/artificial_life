@@ -71,9 +71,14 @@ https://youtu.be/SPBkdOHguSQ
 ### Fitness Tracker
 
 For this trial of 500+ simulated creatures, the fitness values for each evaluation was recorded and processed. Below is a figure tracking the fitness 
-of each creature in the population, with fitness getting better with mutation in later generations.
+of each creature in the population, with fitness getting better with mutation in later generations. The most fascinating thing about this data is that if we look
+at seed 4 we can notice that its initial seed was by far the worst performing creature of the population. However, by the last generation it has become the most successful creature through its evolution and persistence.
 
 ![Fitness Curves](https://user-images.githubusercontent.com/122335049/224903958-0349916e-c3a9-47b3-a9dd-1891c42ba65d.png)
 
 To record your own data running these simulations, open sensor.py and modify the Save_Fitness function to save the fitness values in a text file. 
 You can then use excel to organize the data numerically and then process into figures such as the one seen above.
+
+## Acknowledgements
+
+Thank you to the creator of r/ludobots and pyrosim. Thank you to Karl Sims. Thank you to Artificial Life at Northwestern. 
