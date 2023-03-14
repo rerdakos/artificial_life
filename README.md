@@ -10,7 +10,9 @@ From this repository, open search.py to run the simulations and use constants.py
 
 ## Goal
 
-
+The goal for this project is to design a virtual organisms in 3D space that can evolve in order to better achieve a given task. My project involves a creature
+that moves and crawls in a specified direction. The body and brain of the creature can mutate randomly with each generation, and a parallel hill climber 
+strategy is used to find the best evolved creature in a population. Below I will disucss the details of the creature and how it mutates.
 
 ## Crawler Body
 
@@ -22,41 +24,41 @@ Below is a diagram of the design of our creatures genotype, this is how the bodi
 
 # Phenotype
 
-Now we see how these bodies may look in actual physical space, correspoding to the genotype above. Also, we can see possible bodies
+Now we see how these bodies may look in actual physical space, corresponding to the genotype above. Also, we can see possible bodies
 that may be randomly generated in a population.
 
 ![alt text](https://github.com/rerdakos/artificial_life/blob/Final/Phenotype_.jpg?raw=true)
 
 ![alt text](https://github.com/rerdakos/artificial_life/blob/Final/bodies_.jpg?raw=true)
 
-## Complex Body Plan
+# Full Description of Body Plan
 
-Below is the full body plan for our randomized creature. As you can see below, the torso has 4 node locations where joints can be placed, which lead to a 
+As seen in the phenotype diagram, the torso has 4 node locations where joints can be placed, which lead to a 
 first limb which each also has a node for another joint and second limb. When the body generates, we loop over these node locations and there is a random
-choice to either place a limb or skip to the next node. This random choice is done for both limbs, so we get some creatures with no limb, 1 limb or 2 limbs 
-at each of the nodes. Each of these links have randomly generated sizes and random sensor placement/colors. All sensors connect to all motors.
+choice to either place a limb or skip to the next node. This random choice is done for both limbs. This results in us getting some creatures with no limbs, 1 limb or 2 limbs 
+at any given nodes. Each of these limb links have randomly generated sizes and random sensor placement/colors.
 
-For evolution, motor values are randomly changed as done previously, but now upon each mutation we make a random change to the body plan that determines the
-limb placement.
+## Crawler Brain
+
+Each of the limbs may or may not have a sensor, decided by a random sensor placement that is generated with the body. Sensorized limbs trigger the motors
+to activate, allowing for locomotion. Below is a diagram of potential sensor placement, and involves a map of how active sensors connect to motors.
+
+![alt text](https://github.com/rerdakos/artificial_life/blob/Final/brain_.jpg?raw=true)
+
+# Mutation and Evolution
+
+Each creature in the population acts as a "parent", which has the initial randomly generated body and brain. If we have one or more generations, for 
+each one a "child" is created, which is almost identical to the parent. When this child is made there is some slight mutation from the original parent, 
+which in our project involves creating or removing a limb of the creature. Furthermore, the weights of motor synpases can randomly change with each mutation, 
+giving the creature the chance to optimize its movement patterns.
+
+Below is more information and figures on the selection process for the creatures, as well as an explanation of the parallel hill climber.
+
+![alt text](https://github.com/rerdakos/artificial_life/blob/Final/selection_.jpg?raw=true)
+
+## Tests and Results
 
 
+# Fitness Tracker
 
-
-## Fitness Tracker
-
-![alt text](https://github.com/rerdakos/artificial_life/blob/Assignment8/Fitness5.jpg?raw=true)
-
-### The rest is the same as last Assignment
-### Random number of links
-This is done simply by setting a variable to be random.randint(1, 9), which chooses a random number between 1 and 9 for the number of links we want in our chain.
-
-### Randomly shaped
-This is achieved by setting each of the links dimensions (x,y,z) to be random.uniform(0.1, 1)*2 which chooses a random number between ~0 (0.1 because we can't have a dimension of 0)
-and multiplies it by 2 so we get larger cubes for display purpsoses. This is done over an iterative loop that generates a new link with new dimensions,
-as well as a joint in the appropriate position for each iteration of the loop.
-
-### Random sensor placement + color
-For this part, I used the random.choice() function to choose between 2 color values, blue or green, which would create the cube corresponing to having no sensor
-or having a sensor, respectively. For a chosen color, a correponding colorString is chosen, and those values are passed down as arguments into Send_Cube().
-These arguments end up in material.py and give each link the randomly chosen color. As the colors are being decided, the name of each green link is saved and once the brain is generates,
-those links are given sensors, and the neural network connects the appropriate sensors to each motor.
+![alt text](https://github.com/rerdakos/artificial_life/blob/Fitness5.jpg?raw=true)
